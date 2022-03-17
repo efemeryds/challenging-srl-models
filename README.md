@@ -50,11 +50,13 @@ The models come from AllenNLP project https://github.com/allenai/allennlp-models
 ### First model: structured-prediction-srl-bert
 A BERT based model (Shi et al, 2019).
 
+The details about the model: https://github.com/allenai/allennlp-models/blob/main/allennlp_models/modelcards/structured-prediction-srl-bert.json
 
 
 ### Second model: structured-prediction-srl 
 A reimplementation of a deep BiLSTM sequence prediction model (Stanovsky et al., 2018).
 
+The details about the model: https://github.com/allenai/allennlp-models/blob/main/allennlp_models/modelcards/structured-prediction-srl.json
 
 ## Example tests
 

@@ -1,0 +1,5 @@
+allennlp
+allennlp-models
+checklist~=0.0.11
+nltk~=3.7
+
