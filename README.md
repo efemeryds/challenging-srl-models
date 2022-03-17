@@ -67,22 +67,40 @@ on simple sentences.
 
 
 a) motivation
-
+As the model is based on the word embeddings word encoding, one may wonder whether
+certain semantic information can be used in the SRL task. If this is indeed, then
+the frequency of the words in the corpus may be a crucial indication of the correctness
+of some labels.
 
 b) hypothesis
+Low frequency words will have more uncorrect labels than the high frequency ones.
 
-c) model output
+c) design
+- compare the performance between sentences with low and high frequency words
+- use very simple examples as a baseline
+- use more complex sentences for the actual test
+
+d) model output
 
 
 ### Test 2
 Low and high frequency words with negation
 
 a) motivation
-
+As negation should not have an impact on semantic role, it may be interesting to verify 
+whether it is always the case, especially with low frequency words.
 
 b) hypothesis
+The negation does not influence the ability of the model to classify correctly SRL,
+but the frequency of words indeed plays significant role in that.
 
-c) model output
+c) design
+- compare the performance between sentences with negation and without
+- additionally verify hypothesis that the frequency of words may influence the ability
+of the model to correctly classify labels for sentences with negation
+
+
+d) model output
 
 
 ### Test 3
