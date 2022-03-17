@@ -31,13 +31,20 @@ categories or dependency labels. The examples of chosen features are listed belo
   - morphological features
   - head words
   - ...
-- 
-
-
 
 
 ## List of capabilities to be investigated
--
+- Syntactic variation
+  - Statement vs question
+  - Active vs passive
+  - Marked vs unmarked word order
+  - Argument alternation patterns
+- Predicates, argument patterns and predicate senses
+- Lexicalizations of arguments
+  - frequent vs unfrequent words
+  - Proper names
+- Negation
+- 
 
 
 ## Models that are being tested
@@ -51,19 +58,44 @@ categories or dependency labels. The examples of chosen features are listed belo
 ## Example tests with motivation and model output
 
 ### Test 1
+Low and high frequency words - choice based on the frequencies from the corpus used in a
+given model. Test the ability of correctly labelling the predicates and arguments 
+on simple sentences. 
+
 
 a) motivation
 
 
-b) model output
+b) hypothesis
+
+c) model output
 
 
 ### Test 2
+Low and high frequency words with negation
 
 a) motivation
 
 
-b) model output
+b) hypothesis
+
+c) model output
+
+
+### Test 3
+Low and high frequency words with ... 
+
+
+
+### Test 4
+Low and high frequency words with ... 
+
+
+
+
+### Test 5
+Low and high frequency words with ... 
+
 
 
 ## Sources:
