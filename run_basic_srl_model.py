@@ -57,25 +57,20 @@ def found_arg1_people(x, pred, conf, label=None, meta=None):
     return pass_
 
 
-expect_arg1 = Expect.single(found_arg1_people)
-
-editor = Editor()
-
-# create examples
-t = editor.template("Someone killed {first_name} {last_name} last night.", meta=True, nsamples=10)
-
-print(type(t))
-
-for k, v in t.items():
-    print(k, v)
-
-
 def predict_srl(data):
     pred = []
     for d in data:
         pred.append(srl_predictor.predict(d))
     return pred
 
+expect_arg1 = Expect.single(found_arg1_people)
+editor = Editor()
+
+# create examples
+t = editor.template("Someone killed {first_name} {last_name} last night.", meta=True, nsamples=10)
+# print(type(t))
+# for k, v in t.items():
+#     print(k, v)
 
 predict_and_conf = PredictorWrapper.wrap_predict(predict_srl)
 # initialize a rest object

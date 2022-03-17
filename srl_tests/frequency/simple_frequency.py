@@ -29,49 +29,47 @@ print(output)
 
 def get_arg(pred, arg_target='ARG1'):
     # we assume one predicate:
-    predicate_arguments = pred['verbs'][0]
+    predicate_arguments = pred['verbs'][2]
     words = pred['words']
     tags = predicate_arguments['tags']
 
     arg_list = []
     for t, w in zip(tags, words):
         arg = t
-        if '-' in t:
-            arg = t.split('-')[1]
+        if len(t) > 2:
+            if t[1] == '-':
+                arg = t[2:]
         if arg == arg_target:
             arg_list.append(w)
-    arg_set = set(arg_list)
-    return arg_set
+    return arg_list
 
 
 # Helper function to display failures
 
 def format_srl(x, pred, conf, label=None, meta=None):
-    predicate_structure = pred['verbs'][0]['description']
+    predicate_structure = pred['verbs'][2]['description']
     return predicate_structure
 
 
-def found_arg1_people(x, pred, conf, label=None, meta=None):
-    # people should be recognized as arg1
+def found_argm_loc(x, pred, conf, label=None, meta=None):
+    location = meta['location'].split()
+    argm_loc = get_arg(pred, arg_target='ARGM-LOC')
 
-    people = meta['location']
-    arg_1 = get_arg(pred, arg_target='ArgM-LOC')
-
-    if arg_1 == people:
+    if argm_loc == location:
         pass_ = True
     else:
         pass_ = False
     return pass_
 
 
-expect_argm_loc = Expect.single(found_arg1_people)
+expect_argm_loc = Expect.single(found_argm_loc)
 
 editor = Editor()
 
-vocab = ["far far away", "in the Wonderland", "next to my home", "on the street", "hidden in the forest"]
+vocab = ["far away", "in the Wonderland", "next to my home", "on the street", "in the forest", "in the hospital"]
 
 # create examples
-t = editor.template("When I was little someone told me about a place {location}.", meta=True, location=vocab)
+t = editor.template("When I was younger someone told me about a magical place, this happened {location}.", meta=True, location=vocab)
 
 print(type(t))
 
