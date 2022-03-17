@@ -30,32 +30,33 @@ categories or dependency labels. The examples of chosen features are listed belo
   - lemmas
   - morphological features
   - head words
-  - ...
 
 
-## List of capabilities to be investigated
+## List of capabilities that can be investigated
 - Syntactic variation
   - Statement vs question
   - Active vs passive
-  - Marked vs unmarked word order
-  - Argument alternation patterns
 - Predicates, argument patterns and predicate senses
 - Lexicalizations of arguments
-  - frequent vs unfrequent words
+  - frequent vs infrequent words
   - Proper names
 - Negation
-- 
 
 
 ## Models that are being tested
-
-### First model
-
-
-### Second model
+The models come from AllenNLP project https://github.com/allenai/allennlp-models
 
 
-## Example tests with motivation and model output
+### First model: structured-prediction-srl-bert
+A BERT based model (Shi et al, 2019).
+
+
+
+### Second model: structured-prediction-srl 
+A reimplementation of a deep BiLSTM sequence prediction model (Stanovsky et al., 2018).
+
+
+## Example tests
 
 ### Test 1
 Low and high frequency words - choice based on the frequencies from the corpus used in a
@@ -97,7 +98,13 @@ Low and high frequency words with ...
 Low and high frequency words with ... 
 
 
+## How to run the project
+
+
+## Conclusions
+
 
 ## Sources:
 - Slides from the NLP Technology course at Vrije Universiteit Amsterdam
 - https://web.stanford.edu/~jurafsky/slp3/19.pdf
+- https://docs.allennlp.org/models/main/
