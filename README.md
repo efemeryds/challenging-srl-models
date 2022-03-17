@@ -65,6 +65,8 @@ Low and high frequency words - choice based on the frequencies from the corpus u
 given model. Test the ability of correctly labelling the predicates and arguments 
 on simple sentences. 
 
+**In this version the frequencies from **
+
 
 a) motivation
 As the model is based on the word embeddings word encoding, one may wonder whether

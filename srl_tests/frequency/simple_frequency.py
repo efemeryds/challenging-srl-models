@@ -12,11 +12,20 @@ from checklist.expect import Expect
 from checklist.pred_wrapper import PredictorWrapper
 
 # load model and inspect output
-srl_predictor = load_predictor('structured-prediction-srl')
-output = srl_predictor.predict("The killer killed the victim with a knife.")
+bert_model = 'structured-prediction-srl-bert'
+basic_model = 'structured-prediction-srl'
 
-""" RECREATING EXAMLPE WITH NAMES """
+srl_predictor = load_predictor(basic_model)
 
+
+""" SIMPLE TEST
+Check whether the model is able to correctly assign ArgM-LOC depending on the frequency of the words """
+
+output = srl_predictor.predict("It happened .")
+print(output)
+
+
+""" PREPARE INPUT WORDS -> """
 
 def get_arg(pred, arg_target='ARG1'):
     # we assume one predicate:
@@ -38,17 +47,15 @@ def get_arg(pred, arg_target='ARG1'):
 # Helper function to display failures
 
 def format_srl(x, pred, conf, label=None, meta=None):
-    results = []
     predicate_structure = pred['verbs'][0]['description']
-
     return predicate_structure
 
 
 def found_arg1_people(x, pred, conf, label=None, meta=None):
     # people should be recognized as arg1
 
-    people = set([meta['first_name'], meta['last_name']])
-    arg_1 = get_arg(pred, arg_target='ARG1')
+    people = meta['location']
+    arg_1 = get_arg(pred, arg_target='ArgM-LOC')
 
     if arg_1 == people:
         pass_ = True
@@ -57,12 +64,14 @@ def found_arg1_people(x, pred, conf, label=None, meta=None):
     return pass_
 
 
-expect_arg1 = Expect.single(found_arg1_people)
+expect_argm_loc = Expect.single(found_arg1_people)
 
 editor = Editor()
 
+vocab = ["far far away", "in the Wonderland", "next to my home", "on the street", "hidden in the forest"]
+
 # create examples
-t = editor.template("Someone killed {first_name} {last_name} last night.", meta=True, nsamples=10)
+t = editor.template("When I was little someone told me about a place {location}.", meta=True, location=vocab)
 
 print(type(t))
 
@@ -79,8 +88,15 @@ def predict_srl(data):
 
 predict_and_conf = PredictorWrapper.wrap_predict(predict_srl)
 # initialize a rest object
-test = MFT(**t, name='detect_arg1_name_default_position', expect=expect_arg1)
+test = MFT(**t, name='detect_ArgM-LOC_position', expect=expect_argm_loc)
 test.run(predict_and_conf)
 test.summary(format_example_fn=format_srl)
 
 print('DONE')
+
+
+
+
+
+
+
