@@ -178,7 +178,8 @@ d) model output
 
 
 ## How to run the project
-
+- Currently one can test individual files by running chosen .py file in the main page
+of the project.
 
 ## Conclusions
 
