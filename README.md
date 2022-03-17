@@ -65,7 +65,8 @@ Low and high frequency words - choice based on the frequencies from the corpus u
 given model. Test the ability of correctly labelling the predicates and arguments 
 on simple sentences. 
 
-**In this version the frequencies from **
+**In this version the frequencies are taken from the general lists of words in Internet,
+but the work is being done to get them from Wikipedia corpus**
 
 
 a) motivation
