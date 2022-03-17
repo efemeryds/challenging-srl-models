@@ -72,7 +72,10 @@ a) motivation
 As the model is based on the word embeddings word encoding, one may wonder whether
 certain semantic information can be used in the SRL task. If this is indeed, then
 the frequency of the words in the corpus may be a crucial indication of the correctness
-of some labels.
+of some labels. By performing tests on simple sentences one may see whether the frequency
+has an impact on the results. It is essential to first test the vocabulary on sentences
+without negation and with no other capabilities so that one has a baseline that may
+be used for the rest of the tests. 
 
 b) hypothesis
 Low frequency words will have more uncorrect labels than the high frequency ones.
@@ -106,18 +109,70 @@ d) model output
 
 
 ### Test 3
-Low and high frequency words with ... 
+Low and high frequency words with active and passive sentences.
+
+a) motivation
+Passive sentences are less common than active ones. It is therefore interesting
+to explore how the system will manage the classification on more difficult examples of
+passive sentences. Additionally, one may experiment more with the frequency of words,
+to not only replace one individual word but more.
+
+
+b) hypothesis
+Passive sentences will have lower performance than active ones, but it should be independent
+on the frequency of the words. If the system is able to classify certain passive 
+structure, it seems plausible that it will do the same independently on the vocabulary.
+
+
+c) design
+- test two scenarios:
+  - active and passive sentences with high frequency words
+  - active and passive sentences with low frequency words 
+
+d) model output
 
 
 
 ### Test 4
-Low and high frequency words with ... 
+Low and high frequency words with statement and question sentences. 
 
+a) motivation
+This experiment may be interesting because to create a question from sentence,
+one needs to change the order of words and therefore the impact is greater than
+only substituting single words. Additionally, it may be worth
+exploring how the questions are classified when very uncommon words are present
+in the input sentence.
 
+b) hypothesis
+The question sentences may have worse performance than the declarative sentences. 
+Questions are less common in corpus and their structure is different than the one frm
+the declarative sentences.
+
+c) design
+- test two scenarios:
+  - declarative and question sentence with high frequency words
+  - declarative and question sentence with low frequency words
+  
+d) model output
 
 
 ### Test 5
-Low and high frequency words with ... 
+Substitution with high or low frequency synonyms 
+
+a) motivation
+Synonyms substitution should not influence the performance of the system,
+but challenging it with less common synonyms may be an interesting approach.
+
+b) hypothesis
+The system may have worse results for low frequency synonyms.
+
+c) design
+- compare three scenarios:
+  - baseline sentence performance
+  - substitution with high frequency synonym
+  - substitution with low frequency synonym
+
+d) model output
 
 
 ## How to run the project
