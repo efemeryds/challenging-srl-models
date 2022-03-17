@@ -11,15 +11,30 @@ The same information can be encoded using different syntactic variations but if 
 representation, we should be able to treat all of them as expressing same phenomenon. 
 - Formally the task of SRL can be defined as identifying the predicate argument structures.
 - Properly working SRL system should be able to receive:
-  - INPUT: a text
+  - input: as a text
   
   And return:
-  - OUTPUT: a sequence of labeled arguments
-
+  - output: as a sequence of labeled arguments
 - The system works in a given sequence given it gets the information on the predicate:
   1. Perform argument identification - different ways of achieving that, can be hand-written rules, or more sophisticated algorithmic methods
   2. Perform role labeling - among other possibilities, one can use SVM or logistic regression to get most probable label
   3. Perform inference - among other options, one can introduce certain linguistic and structural constraints 
+- Features used to train SRL systems are based on different syntactic
+categories or dependency labels. The examples of chosen features are listed below:
+
+  - named entities 
+  - word embeddings 
+  - PoS-tag of the previous token 
+  - PoS-tag of the next token 
+  - tokens
+  - lemmas
+  - morphological features
+  - head words
+  - ...
+- 
+
+
+
 
 ## List of capabilities to be investigated
 -
