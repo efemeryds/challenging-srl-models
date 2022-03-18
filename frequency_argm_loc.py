@@ -1,4 +1,4 @@
-from srl_tests.frequency.ARGM_LOC import run_location_test
+from srl_tests.frequency.argm_loc import run_location_test
 
 input_sentence = "When I was younger someone told me about a magical place, this happened {location}."
 

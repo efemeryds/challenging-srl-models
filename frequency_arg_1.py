@@ -1,4 +1,4 @@
-from srl_tests.frequency.ARG1 import run_arg1_test
+from srl_tests.frequency.arg_1 import run_arg1_test
 
 input_sentence = "Someone stole {thing} from my grandfather's house yesterday evening."
 
