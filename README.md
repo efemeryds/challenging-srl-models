@@ -66,7 +66,9 @@ given model. Test the ability of correctly labelling the predicates and argument
 on simple sentences. 
 
 **In this version the frequencies are taken from the general lists of words in Internet,
-but the work is being done to get them from Wikipedia corpus**
+but in datasets/ there is a file with frequncies taken from wikipedia corpus with the use of
+the project https://github.com/IlyaSemenov/wikipedia-word-frequency. The file
+will be processed and used as input in the next version of the project**
 
 
 a) motivation
