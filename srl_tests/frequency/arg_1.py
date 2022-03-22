@@ -70,7 +70,7 @@ def run_arg1_test(sentence, vocab):
     for k, v in t.items():
         print(k, v)
     predict_and_conf = PredictorWrapper.wrap_predict(predict_srl)
-    test = MFT(**t, name='detect_Arg1_position', expect=expect_arg1)
+    test = MFT(**t, name='detect', expect=expect_arg1)
     test.run(predict_and_conf)
     test.summary(format_example_fn=format_srl)
 

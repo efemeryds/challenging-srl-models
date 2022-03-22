@@ -11,20 +11,15 @@ from checklist.test_types import MFT, INV, DIR
 from checklist.expect import Expect
 from checklist.pred_wrapper import PredictorWrapper
 import logging
+
 logger = logging.getLogger()
 logger.setLevel(logging.CRITICAL)
 
-# load model and inspect output
-bert_model = 'structured-prediction-srl-bert'
-basic_model = 'structured-prediction-srl'
 
-srl_predictor = load_predictor(basic_model)
-
-
-def get_argument(pred, arg_target='ARG1'):
+def get_argument(predicate, arg_target='ARG1'):
     # assume one predicate:
-    predicate_arguments = pred['verbs'][2]
-    words = pred['words']
+    predicate_arguments = predicate['verbs'][2]
+    words = predicate['words']
     tags = predicate_arguments['tags']
 
     arg_list = []
@@ -44,7 +39,7 @@ def format_srl(x, pred, conf, label=None, meta=None):
 
 
 def found_arguments(x, pred, conf, label=None, meta=None):
-    location = meta['location'].split()
+    location = meta['target_name'].split()
     argument_loc = get_argument(pred, arg_target='ARGM-LOC')
     if argument_loc == location:
         found = True
@@ -53,29 +48,34 @@ def found_arguments(x, pred, conf, label=None, meta=None):
     return found
 
 
-def predict_srl(data):
+def predict_srl(data, model='structured-prediction-srl-bert'):
+    srl_predictor = load_predictor(model)
     predicate_list = []
     for d in data:
         predicate_list.append(srl_predictor.predict(d))
     return predicate_list
 
 
-def run_location_test(sentence, vocab):
+def run_location_test(sentence, vocab, model_name):
     expect_argm_loc = Expect.single(found_arguments)
     editor = Editor()
-    t = editor.template(sentence, meta=True,
-                    location=vocab)
+    t = editor.template(sentence, model=model_name, meta=True,
+                        target_name=vocab)
     print(type(t))
     for k, v in t.items():
         print(k, v)
     predict_and_conf = PredictorWrapper.wrap_predict(predict_srl)
-    test = MFT(**t, name='detect_ArgM-LOC_position', expect=expect_argm_loc)
+    test = MFT(**t, name='detect', expect=expect_argm_loc)
     test.run(predict_and_conf)
     test.summary(format_example_fn=format_srl)
 
 
 if __name__ == "__main__":
-    input_vocab = ["far away", "in the Wonderland", "next to my home", "on the street", "in the forest", "in the hospital"]
-    input_sentence = "When I was younger someone told me about a magical place, this happened {location}."
-    run_location_test(input_sentence, input_vocab)
+    # load model and inspect output
+    bert_model = 'structured-prediction-srl-bert'
+    basic_model = 'structured-prediction-srl'
 
+    input_vocab = ["far away", "in the Wonderland", "next to my home", "on the street", "in the forest",
+                   "in the hospital"]
+    input_sentence = "When I was younger someone told me about a magical place, this happened {target_name}."
+    run_location_test(input_sentence, input_vocab, basic_model)
