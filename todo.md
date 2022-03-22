@@ -22,6 +22,10 @@ Pipeline:
 - add lexicon from csv?
 
 
+questions:
+- the final format, many files, or just outcome on terminal?
+- how to classify single words?
+
 
 
 

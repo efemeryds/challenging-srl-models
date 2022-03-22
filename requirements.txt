@@ -3,3 +3,6 @@ allennlp-models
 checklist~=0.0.11
 nltk~=3.7
 
+
+spacy~=3.2.3
+pandas~=1.4.1
