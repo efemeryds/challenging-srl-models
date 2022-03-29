@@ -45,7 +45,8 @@ def format_srl(x, pred, conf, label=None, meta=None):
 def found_arguments(x, pred, conf, label=None, meta=None):
     thing = meta['vocab'].split()
     predicted_label = get_argument(pred, arg_target='I-ARG2')
-    if predicted_label == thing:
+    argument_str = ' '.join(predicted_label)
+    if thing[0] in argument_str:
         found = True
     else:
         found = False
@@ -112,7 +113,7 @@ if __name__ == "__main__":
     frequent_nouns = data['low_freq_objects']
     non_frequent_nouns = data['high_freq_objects']
 
-    input_sentence = "She hurt him with {vocab}."
+    input_sentence = "She hurt him with the {vocab}."
 
     basic_eval_f = run_test(input_sentence, frequent_nouns, 'basic')
     basic_eval_f['if_frequent'] = 1

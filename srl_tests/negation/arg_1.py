@@ -22,7 +22,7 @@ logging.getLogger('allennlp.models.archival').disabled = True
 
 def get_argument(pred, arg_target='I-ARG2'):
     # assume one predicate:
-    predicate_arguments = pred['verbs'][0]
+    predicate_arguments = pred['verbs'][1]
     words = pred['words']
     tags = predicate_arguments['tags']
 
@@ -38,7 +38,7 @@ def get_argument(pred, arg_target='I-ARG2'):
 
 
 def format_srl(x, pred, conf, label=None, meta=None):
-    predicate_structure = pred['verbs'][0]['description']
+    predicate_structure = pred['verbs'][1]['description']
     return predicate_structure
 
 
@@ -109,8 +109,10 @@ if __name__ == "__main__":
     input_vocab = ["far away", "in the Wonderland", "next to my home", "on the street", "in the forest",
                    "in the hospital"]
 
-    input_sentence = "She hurt him with {vocab}."
-    input_negation_sentence = "She didn't hurt him with {vocab}."
+    input_sentence = "I was her who hurt him with {vocab}."
+    input_negation_sentence = "It was not her who hurt him with {vocab}."
+
+    # TODO: investigate fails for negation
 
     with open('../../challenge_tests/vocab/processed_lists.json') as json_file:
         data = json.load(json_file)
