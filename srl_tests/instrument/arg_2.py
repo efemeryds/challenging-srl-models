@@ -4,6 +4,7 @@ from checklist.expect import Expect
 from checklist.pred_wrapper import PredictorWrapper
 from allennlp_models.pretrained import load_predictor
 import logging
+import json
 # nltk.download('omw-1.4')
 import spacy
 import pandas as pd
@@ -28,7 +29,7 @@ def get_argument(pred, arg_target='I-ARG2'):
     arg_list = []
     for t, w in zip(tags, words):
         arg = t
-        #if len(t) > 2:
+        # if len(t) > 2:
         #    if t[1] == '-':
         #        arg = t[2:]
         if arg == arg_target:
@@ -94,8 +95,8 @@ def run_test(sentence, vocab, model_name, gold='I-ARG2'):
     return evaluation_df
 
 
-def merge_models_outputs(model1, model2, output_file):
-    final_data = model1.append(model2, ignore_index=True)
+def merge_models_outputs(model1, model2, model3, model4, output_file):
+    final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
     final_data.to_csv(f"../../evaluation/{output_file}.csv")
     print('DONE')
 
@@ -105,10 +106,22 @@ if __name__ == "__main__":
     bert_model = 'structured-prediction-srl-bert'
     basic_model = 'structured-prediction-srl'
 
-    input_vocab = ["knife", "apple", "piano"]
+    with open('../../challenge_tests/vocab/processed_lists.json') as json_file:
+        data = json.load(json_file)
+
+    frequent_nouns = data['low_freq_objects']
+    non_frequent_nouns = data['high_freq_objects']
+
     input_sentence = "She hurt him with {vocab}."
 
-    basic_eval = run_test(input_sentence, input_vocab, 'basic')
-    bert_eval = run_test(input_sentence, input_vocab, 'bert')
+    basic_eval_f = run_test(input_sentence, frequent_nouns, 'basic')
+    basic_eval_f['if_frequent'] = 1
+    bert_eval_f = run_test(input_sentence, frequent_nouns, 'bert')
+    bert_eval_f['if_frequent'] = 1
 
-    merge_models_outputs(basic_eval, bert_eval, "instrument_arg2")
+    basic_eval_nf = run_test(input_sentence, non_frequent_nouns, 'basic')
+    basic_eval_nf['if_frequent'] = 0
+    bert_eval_nf = run_test(input_sentence, non_frequent_nouns, 'bert')
+    bert_eval_nf['if_frequent'] = 0
+
+    merge_models_outputs(basic_eval_f, bert_eval_f, basic_eval_nf, bert_eval_nf, "instrument_arg2")

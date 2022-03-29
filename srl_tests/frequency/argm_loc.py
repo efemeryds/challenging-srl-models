@@ -6,6 +6,7 @@ from allennlp_models.pretrained import load_predictor
 import logging
 # nltk.download('omw-1.4')
 import spacy
+import json
 import pandas as pd
 import numpy as np
 
@@ -19,7 +20,7 @@ logging.getLogger('allennlp.common.plugins').disabled = True
 logging.getLogger('allennlp.models.archival').disabled = True
 
 
-def get_argument(pred, arg_target='ARG1'):
+def get_argument(pred, arg_target='I-ARGM-LOC'):
     # assume one predicate:
     predicate_arguments = pred['verbs'][2]
     words = pred['words']
@@ -28,9 +29,9 @@ def get_argument(pred, arg_target='ARG1'):
     arg_list = []
     for t, w in zip(tags, words):
         arg = t
-        if len(t) > 2:
-            if t[1] == '-':
-                arg = t[2:]
+        #if len(t) > 2:
+        #    if t[1] == '-':
+        #        arg = t[2:]
         if arg == arg_target:
             arg_list.append(w)
     return arg_list
@@ -43,8 +44,9 @@ def format_srl(x, pred, conf, label=None, meta=None):
 
 def found_arguments(x, pred, conf, label=None, meta=None):
     location = meta['vocab'].split()
-    argument_loc = get_argument(pred, arg_target='ARGM-LOC')
-    if argument_loc == location:
+    argument_loc = get_argument(pred, arg_target='I-ARGM-LOC')
+    argument_str = ' '.join(argument_loc)
+    if location[0] in argument_str:
         found = True
     else:
         found = False
@@ -67,7 +69,7 @@ def bert_prediction(data):
     return predicate_list
 
 
-def run_test(sentence, vocab, model_name, gold='ARGM-LOC'):
+def run_test(sentence, vocab, model_name, gold='I-ARGM-LOC'):
     expect_arg1 = Expect.single(found_arguments)
 
     editor = Editor()
@@ -94,8 +96,8 @@ def run_test(sentence, vocab, model_name, gold='ARGM-LOC'):
     return evaluation_df
 
 
-def merge_models_outputs(model1, model2, output_file):
-    final_data = model1.append(model2, ignore_index=True)
+def merge_models_outputs(model1, model2, model3, model4, output_file):
+    final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
     final_data.to_csv(f"../../evaluation/{output_file}.csv")
     print('DONE')
 
@@ -105,11 +107,22 @@ if __name__ == "__main__":
     bert_model = 'structured-prediction-srl-bert'
     basic_model = 'structured-prediction-srl'
 
-    input_vocab = ["Wonderland", "house", "street", "forest",
-                   "in the hospital"]
+    with open('../../challenge_tests/vocab/processed_lists.json') as json_file:
+        data = json.load(json_file)
+
+    frequent_locations = data['low_freq_places']
+    non_frequent_locations = data['high_freq_places']
+
     input_sentence = "When I was younger someone told me about a magical place, this happened next to the {vocab}."
 
-    basic_eval = run_test(input_sentence, input_vocab, 'basic')
-    bert_eval = run_test(input_sentence, input_vocab, 'bert')
+    basic_eval_f = run_test(input_sentence, frequent_locations, 'basic')
+    basic_eval_f['if_frequent'] = 1
+    bert_eval_f = run_test(input_sentence, frequent_locations, 'bert')
+    bert_eval_f['if_frequent'] = 1
 
-    merge_models_outputs(basic_eval, bert_eval, "frequency_argm_loc")
+    basic_eval_nf = run_test(input_sentence, non_frequent_locations, 'basic')
+    basic_eval_nf['if_frequent'] = 0
+    bert_eval_nf = run_test(input_sentence, non_frequent_locations, 'bert')
+    bert_eval_nf['if_frequent'] = 0
+
+    merge_models_outputs(basic_eval_f, bert_eval_f, basic_eval_nf, bert_eval_nf, "frequency_argm_loc")

@@ -49,24 +49,32 @@ tmp_data['tags'] = tmp_tag_list
 
 # save proper lists into new files
 
-top_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].head(1000)['words'])
-bottom_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].tail(1000)['words'])
+top_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].head(10)['words'])
+bottom_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].tail(10)['words'])
 
-top_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].head(1000)['words'])
-bottom_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].tail(1000)['words'])
+top_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].head(10)['words'])
+bottom_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].tail(10)['words'])
 
 """ Manually choosing the proper words in each frequency category """
 
-# 20 examples per each
-low_freq_places = ['hideout', 'amphitheater', 'obelisk', 'cafes', 'dormitories', 'pyramids', '']
-high_freq_places = []
+# 10 examples
+low_freq_places = ['hideout', 'amphitheater', 'obelisk', 'cafes', 'dormitories', 'pyramids', 'westinghouse',
+                   'backyard', 'bastion', 'stair']
+high_freq_places = ['pool', 'territories', 'landscape', 'transition', 'oak', 'manor', 'locomotives',
+                    'departments', 'shops', 'restaurants']
 
+# 15 examples
 low_freq_objects = ['glue', 'wick', 'watercolor', 'locust', 'jam', 'vinegar', 'graphite', 'kettle',
                     'cookies', 'perfume', 'razor', 'bulbs', 'carpets', 'dessert', 'bows']
-high_freq_objects = []
+high_freq_objects = ['instruments', 'medals', 'newspapers', 'cards', 'tools', 'sculpture', 'clothing',
+                     'photographs', 'bone', 'crystal', 'door', 'speakers', 'boards', 'drum', 'tube']
 
-low_freq_verbs = []
-high_freq_verbs = []
+# 10 examples
+low_freq_verbs = ['manipulated', 'appreciated', 'cared for', 'dismissed', 'remembered', 'advised',
+                  'lied to', 'observed', 'improved', 'robbed']
+
+high_freq_verbs = ['recommended', 'accepted', 'spoke to', 'sponsored', 'picked',
+                   'encouraged', 'concerned', 'suspended', 'isolated', 'defended']
 
 data = {
     'low_freq_places': low_freq_places,
@@ -76,7 +84,7 @@ data = {
     'low_freq_verbs': low_freq_verbs,
     'high_freq_verbs': high_freq_verbs
 }
-with open('final_vocab.json', 'w', encoding ='utf8') as json_file:
-    json.dump(data, json_file, allow_nan=True)
+with open('../challenge_tests/vocab/processed_lists.json', 'w', encoding ='utf8') as json_file:
+    json.dump(data, json_file, indent=4, allow_nan=True)
 
 print('DONE')
