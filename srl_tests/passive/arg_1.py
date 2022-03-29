@@ -119,26 +119,26 @@ if __name__ == "__main__":
 
     basic_f_normal = run_test(input_sentence, frequent_nouns, 'basic')
     basic_f_normal['if_frequent'] = 1
-    # bert_f_normal = run_test(input_sentence, frequent_nouns, 'bert')
-    # bert_f_normal['if_frequent'] = 1
-    #
-    # basic_nf_normal = run_test(input_sentence, non_frequent_nouns, 'basic')
-    # basic_nf_normal['if_frequent'] = 0
-    # bert_nf_normal = run_test(input_sentence, non_frequent_nouns, 'bert')
-    # bert_nf_normal['if_frequent'] = 0
+    bert_f_normal = run_test(input_sentence, frequent_nouns, 'bert')
+    bert_f_normal['if_frequent'] = 1
+
+    basic_nf_normal = run_test(input_sentence, non_frequent_nouns, 'basic')
+    basic_nf_normal['if_frequent'] = 0
+    bert_nf_normal = run_test(input_sentence, non_frequent_nouns, 'bert')
+    bert_nf_normal['if_frequent'] = 0
 
     basic_f_neg = run_test(passive_sentence, frequent_nouns, 'basic')
     basic_f_neg['if_frequent'] = 1
-    # bert_f_neg = run_test(passive_sentence, frequent_nouns, 'bert')
-    # bert_f_neg['if_frequent'] = 1
-    #
-    # basic_nf_neg = run_test(passive_sentence, non_frequent_nouns, 'basic')
-    # basic_nf_neg['if_frequent'] = 0
-    # bert_ng_neg = run_test(passive_sentence, non_frequent_nouns, 'bert')
-    # bert_ng_neg['if_frequent'] = 0
+    bert_f_neg = run_test(passive_sentence, frequent_nouns, 'bert')
+    bert_f_neg['if_frequent'] = 1
 
-    # merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
-    #                      basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "passive_")
+    basic_nf_neg = run_test(passive_sentence, non_frequent_nouns, 'basic')
+    basic_nf_neg['if_frequent'] = 0
+    bert_ng_neg = run_test(passive_sentence, non_frequent_nouns, 'bert')
+    bert_ng_neg['if_frequent'] = 0
+
+    merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
+                         basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "passive_")
 
 
 
