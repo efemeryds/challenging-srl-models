@@ -19,32 +19,32 @@ logging.getLogger('allennlp.common.plugins').disabled = True
 logging.getLogger('allennlp.models.archival').disabled = True
 
 
-def get_argument(pred, arg_target='ARGM-LOC'):
+def get_argument(pred, arg_target='I-ARG2'):
     # assume one predicate:
-    predicate_arguments = pred['verbs'][2]
+    predicate_arguments = pred['verbs'][0]
     words = pred['words']
     tags = predicate_arguments['tags']
 
     arg_list = []
     for t, w in zip(tags, words):
         arg = t
-        if len(t) > 2:
-            if t[1] == '-':
-                arg = t[2:]
+        #if len(t) > 2:
+        #    if t[1] == '-':
+        #        arg = t[2:]
         if arg == arg_target:
             arg_list.append(w)
     return arg_list
 
 
 def format_srl(x, pred, conf, label=None, meta=None):
-    predicate_structure = pred['verbs'][2]['description']
+    predicate_structure = pred['verbs'][0]['description']
     return predicate_structure
 
 
 def found_arguments(x, pred, conf, label=None, meta=None):
-    location = meta['vocab'].split()
-    argument_loc = get_argument(pred, arg_target='ARGM-LOC')
-    if argument_loc == location:
+    thing = meta['vocab'].split()
+    predicted_label = get_argument(pred, arg_target='I-ARG2')
+    if predicted_label == thing:
         found = True
     else:
         found = False
@@ -67,7 +67,7 @@ def bert_prediction(data):
     return predicate_list
 
 
-def run_test(sentence, vocab, model_name, gold='ARGM-LOC'):
+def run_test(sentence, vocab, model_name, gold='I-ARG2'):
     expect_arg1 = Expect.single(found_arguments)
 
     editor = Editor()
@@ -94,8 +94,8 @@ def run_test(sentence, vocab, model_name, gold='ARGM-LOC'):
     return evaluation_df
 
 
-def merge_negation(model1, model2, model3, model4, output_file):
-    final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
+def merge_models_outputs(model1, model2, output_file):
+    final_data = model1.append(model2, ignore_index=True)
     final_data.to_csv(f"../../evaluation/{output_file}.csv")
     print('DONE')
 
@@ -105,24 +105,10 @@ if __name__ == "__main__":
     bert_model = 'structured-prediction-srl-bert'
     basic_model = 'structured-prediction-srl'
 
-    input_vocab = ["far away", "in the Wonderland", "next to my home", "on the street", "in the forest",
-                   "in the hospital"]
-    input_sentence = "When I was younger someone told me about a magical place, this happened {vocab}."
-    input_negation_sentence = "When I was younger someone told me about a magical place, this happened not {vocab}."
+    input_vocab = ["knife", "apple", "piano"]
+    input_sentence = "She hurt him with {vocab}."
 
-    # normal
-    # normal_df_basic = run_test(input_sentence, input_vocab, 'basic')
-    # normal_df_basic['if_negation'] = 0
-    # normal_df_bert = run_test(input_sentence, input_vocab, 'bert')
-    # normal_df_bert['if_negation'] = 0
+    basic_eval = run_test(input_sentence, input_vocab, 'basic')
+    bert_eval = run_test(input_sentence, input_vocab, 'bert')
 
-    # negation
-    negation_df_basic = run_test(input_negation_sentence, input_vocab, 'basic')
-    negation_df_basic['if_negation'] = 1
-    negation_df_bert = run_test(input_negation_sentence, input_vocab, 'bert')
-    negation_df_bert['if_negation'] = 1
-
-    # TODO: fix this example
-    #merge_negation(normal_df_basic, negation_df_bert, normal_df_bert, negation_df_basic, "negation_argm_loc")
-    print('DONE')
-
+    merge_models_outputs(basic_eval, bert_eval, "instrument_arg2")

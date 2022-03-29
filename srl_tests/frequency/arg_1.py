@@ -1,25 +1,22 @@
-from allennlp_models.pretrained import load_predictor
-import nltk
-import spacy
-
-# nltk.download('omw-1.4')
-spacy.load('en_core_web_sm')
-import checklist
 from checklist.editor import Editor
-from checklist.perturb import Perturb
-from checklist.test_types import MFT, INV, DIR
+from checklist.test_types import MFT
 from checklist.expect import Expect
 from checklist.pred_wrapper import PredictorWrapper
+from allennlp_models.pretrained import load_predictor
 import logging
+# nltk.download('omw-1.4')
+import spacy
+import pandas as pd
+import numpy as np
 
-logger = logging.getLogger()
-logger.setLevel(logging.CRITICAL)
+spacy.load('en_core_web_sm')
 
-# load model and inspect output
-bert_model = 'structured-prediction-srl-bert'
-basic_model = 'structured-prediction-srl'
-
-srl_predictor = load_predictor(basic_model)
+logging.getLogger('allennlp.common.params').disabled = True
+logging.getLogger('allennlp.nn.initializers').disabled = True
+logging.getLogger('allennlp.modules.token_embedders.embedding').setLevel(logging.WARNING)
+logging.getLogger('urllib3.connectionpool').disabled = True
+logging.getLogger('allennlp.common.plugins').disabled = True
+logging.getLogger('allennlp.models.archival').disabled = True
 
 
 def get_argument(pred, arg_target='ARG1'):
@@ -45,37 +42,71 @@ def format_srl(x, pred, conf, label=None, meta=None):
 
 
 def found_arguments(x, pred, conf, label=None, meta=None):
-    thing = meta['thing'].split()
-    arg1 = get_argument(pred, arg_target='ARG1')
-    if arg1 == thing:
+    thing = meta['vocab'].split()
+    predicted_label = get_argument(pred, arg_target='ARG1')
+    if predicted_label == thing:
         found = True
     else:
         found = False
     return found
 
 
-def predict_srl(data):
+def basic_model_prediction(data):
+    srl_predictor = load_predictor('structured-prediction-srl')
     predicate_list = []
     for d in data:
         predicate_list.append(srl_predictor.predict(d))
     return predicate_list
 
 
-def run_arg1_test(sentence, vocab):
+def bert_prediction(data):
+    srl_predictor = load_predictor('structured-prediction-srl-bert')
+    predicate_list = []
+    for d in data:
+        predicate_list.append(srl_predictor.predict(d))
+    return predicate_list
+
+
+def run_arg1_test(sentence, vocab, model_name, gold='ARG1'):
     expect_arg1 = Expect.single(found_arguments)
+
     editor = Editor()
     t = editor.template(sentence, meta=True,
-                        thing=vocab)
-    print(type(t))
-    for k, v in t.items():
-        print(k, v)
-    predict_and_conf = PredictorWrapper.wrap_predict(predict_srl)
+                        vocab=vocab)
+
+    if model_name == "bert":
+        predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
+    else:
+        predict_and_conf = PredictorWrapper.wrap_predict(basic_model_prediction)
     test = MFT(**t, name='detect', expect=expect_arg1)
     test.run(predict_and_conf)
     test.summary(format_example_fn=format_srl)
 
+    # create final df
+    evaluation_df = pd.DataFrame({'vocab': vocab})
+    evaluation_df['sentence'] = sentence
+    evaluation_df['gold'] = gold
+    evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
+    evaluation_df['predicted'] = list(test.results['passed'])
+    evaluation_df['eval'] = np.where(evaluation_df['expected'] == evaluation_df['predicted'], 1, 0)
+    evaluation_df['model_name'] = model_name
+    evaluation_df = evaluation_df[['sentence', 'vocab', 'model_name', 'gold', 'eval']]
+    return evaluation_df
+
+
+def merge_models_outputs(model1, model2, output_file):
+    final_data = model1.append(model2, ignore_index=True)
+    final_data.to_csv(f"../../evaluation/{output_file}.csv")
+    print('DONE')
+
 
 if __name__ == "__main__":
-    input_vocab = ["apple"]
-    input_sentence = "Someone stole {thing} from my grandfather's house yesterday evening."
-    run_arg1_test(input_sentence, input_vocab)
+    bert_model = 'structured-prediction-srl-bert'
+    basic_model = 'structured-prediction-srl'
+    input_vocab = ["apple", "cat", "house"]
+    input_sentence = "Someone stole {vocab} from my grandfather's house yesterday evening."
+
+    basic_eval = run_arg1_test(input_sentence, input_vocab, 'basic')
+    bert_eval = run_arg1_test(input_sentence, input_vocab, 'bert')
+
+    merge_models_outputs(basic_eval, bert_eval, "frequency_arg1")

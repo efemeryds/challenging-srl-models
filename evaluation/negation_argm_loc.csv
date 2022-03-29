@@ -1,0 +1,25 @@
+,sentence,vocab,model_name,gold,eval,if_negation
+0,"When I was younger someone told me about a magical place, this happened {vocab}.",far away,basic,ARGM-LOC,1,0
+1,"When I was younger someone told me about a magical place, this happened {vocab}.",in the Wonderland,basic,ARGM-LOC,1,0
+2,"When I was younger someone told me about a magical place, this happened {vocab}.",next to my home,basic,ARGM-LOC,1,0
+3,"When I was younger someone told me about a magical place, this happened {vocab}.",on the street,basic,ARGM-LOC,1,0
+4,"When I was younger someone told me about a magical place, this happened {vocab}.",in the forest,basic,ARGM-LOC,1,0
+5,"When I was younger someone told me about a magical place, this happened {vocab}.",in the hospital,basic,ARGM-LOC,1,0
+6,"When I was younger someone told me about a magical place, this happened not {vocab}.",far away,bert,ARGM-LOC,1,1
+7,"When I was younger someone told me about a magical place, this happened not {vocab}.",in the Wonderland,bert,ARGM-LOC,1,1
+8,"When I was younger someone told me about a magical place, this happened not {vocab}.",next to my home,bert,ARGM-LOC,1,1
+9,"When I was younger someone told me about a magical place, this happened not {vocab}.",on the street,bert,ARGM-LOC,1,1
+10,"When I was younger someone told me about a magical place, this happened not {vocab}.",in the forest,bert,ARGM-LOC,1,1
+11,"When I was younger someone told me about a magical place, this happened not {vocab}.",in the hospital,bert,ARGM-LOC,1,1
+12,"When I was younger someone told me about a magical place, this happened {vocab}.",far away,bert,ARGM-LOC,1,0
+13,"When I was younger someone told me about a magical place, this happened {vocab}.",in the Wonderland,bert,ARGM-LOC,1,0
+14,"When I was younger someone told me about a magical place, this happened {vocab}.",next to my home,bert,ARGM-LOC,1,0
+15,"When I was younger someone told me about a magical place, this happened {vocab}.",on the street,bert,ARGM-LOC,1,0
+16,"When I was younger someone told me about a magical place, this happened {vocab}.",in the forest,bert,ARGM-LOC,1,0
+17,"When I was younger someone told me about a magical place, this happened {vocab}.",in the hospital,bert,ARGM-LOC,1,0
+18,"When I was younger someone told me about a magical place, this happened not {vocab}.",far away,basic,ARGM-LOC,1,1
+19,"When I was younger someone told me about a magical place, this happened not {vocab}.",in the Wonderland,basic,ARGM-LOC,1,1
+20,"When I was younger someone told me about a magical place, this happened not {vocab}.",next to my home,basic,ARGM-LOC,1,1
+21,"When I was younger someone told me about a magical place, this happened not {vocab}.",on the street,basic,ARGM-LOC,1,1
+22,"When I was younger someone told me about a magical place, this happened not {vocab}.",in the forest,basic,ARGM-LOC,1,1
+23,"When I was younger someone told me about a magical place, this happened not {vocab}.",in the hospital,basic,ARGM-LOC,1,1

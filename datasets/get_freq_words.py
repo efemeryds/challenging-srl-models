@@ -49,22 +49,32 @@ tmp_data['tags'] = tmp_tag_list
 
 # save proper lists into new files
 
-top_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].head(100)['words'])
-bottom_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].tail(100)['words'])
+top_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].head(1000)['words'])
+bottom_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].tail(1000)['words'])
 
-top_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].head(100)['words'])
-bottom_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].tail(100)['words'])
+top_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].head(1000)['words'])
+bottom_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].tail(1000)['words'])
+
+""" Manually choosing the proper words in each frequency category """
+
+# 20 examples per each
+low_freq_places = ['hideout', 'amphitheater', 'obelisk', 'cafes', 'dormitories', 'pyramids', '']
+high_freq_places = []
+
+low_freq_objects = ['glue', 'wick', 'watercolor', 'locust', 'jam', 'vinegar', 'graphite', 'kettle',
+                    'cookies', 'perfume', 'razor', 'bulbs', 'carpets', 'dessert', 'bows']
+high_freq_objects = []
+
+low_freq_verbs = []
+high_freq_verbs = []
 
 data = {
-    'data': [
-        {
-            'top_freq_nouns': top_freq_nouns,
-            'bottom_freq_nouns': bottom_freq_nouns,
-            'top_freq_verbs': top_freq_verbs,
-            'bottom_freq_verbs': bottom_freq_verbs
-
-        }
-    ]
+    'low_freq_places': low_freq_places,
+    'high_freq_places': high_freq_places,
+    'low_freq_objects': low_freq_objects,
+    'high_freq_objects': high_freq_objects,
+    'low_freq_verbs': low_freq_verbs,
+    'high_freq_verbs': high_freq_verbs
 }
 with open('final_vocab.json', 'w', encoding ='utf8') as json_file:
     json.dump(data, json_file, allow_nan=True)
