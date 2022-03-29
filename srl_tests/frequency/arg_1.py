@@ -97,7 +97,7 @@ def run_arg1_test(sentence, vocab, model_name, gold='ARG1'):
 
 def merge_models_outputs(model1, model2, model3, model4, output_file):
     final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv")
+    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
     print('DONE')
 
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
     frequent_nouns = data['low_freq_objects']
     non_frequent_nouns = data['high_freq_objects']
 
-    input_sentence = "Someone stole {vocab} from my grandfather's house yesterday evening."
+    input_sentence = "Someone stole {vocab} from his garage."
 
     basic_eval_f = run_arg1_test(input_sentence, frequent_nouns, 'basic')
     basic_eval_f['if_frequent'] = 1

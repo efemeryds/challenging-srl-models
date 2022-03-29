@@ -20,35 +20,60 @@ logging.getLogger('allennlp.common.plugins').disabled = True
 logging.getLogger('allennlp.models.archival').disabled = True
 
 
-def get_argument(pred, arg_target='I-ARG2'):
+def get_argument(pred, arg_target='B-ARG0'):
+    # assume one predicate:
+    predicate_arguments = pred['verbs'][0]
+    words = pred['words']
+    tags = predicate_arguments['tags']
+    arg_list = []
+    for t, w in zip(tags, words):
+        arg = t
+        if arg == arg_target:
+            arg_list.append(w)
+    return arg_list
+
+def get_question_argument(pred, arg_target='B-ARG0'):
     # assume one predicate:
     predicate_arguments = pred['verbs'][1]
     words = pred['words']
     tags = predicate_arguments['tags']
-
     arg_list = []
     for t, w in zip(tags, words):
         arg = t
-        # if len(t) > 2:
-        #    if t[1] == '-':
-        #        arg = t[2:]
         if arg == arg_target:
             arg_list.append(w)
     return arg_list
 
 
 def format_srl(x, pred, conf, label=None, meta=None):
+    predicate_structure = pred['verbs'][0]['description']
+    return predicate_structure
+
+
+def question_format_srl(x, pred, conf, label=None, meta=None):
     predicate_structure = pred['verbs'][1]['description']
     return predicate_structure
 
 
 def found_arguments(x, pred, conf, label=None, meta=None):
-    thing = meta['vocab'].split()
-    predicted_label = get_argument(pred, arg_target='I-ARG2')
-    if predicted_label == thing:
-        found = True
-    else:
-        found = False
+    # thing = meta['verb'].split()
+    thing = ['he', 'He']
+    predicted_label = get_argument(pred, arg_target='B-ARG0')
+    found = False
+    if predicted_label:
+        if predicted_label[0] in ' '.join(thing):
+            found = True
+    return found
+
+
+def question_found_arguments(x, pred, conf, label=None, meta=None):
+    # thing = meta['verb'].split()
+    thing = ['he', 'He']
+    predicted_label = get_question_argument(pred, arg_target='B-ARG0')
+    found = False
+    if predicted_label:
+        if predicted_label[0] in ' '.join(thing):
+            found = True
     return found
 
 
@@ -68,13 +93,26 @@ def bert_prediction(data):
     return predicate_list
 
 
-def run_test(sentence, vocab, model_name, gold='I-ARG2'):
-    expect_arg1 = Expect.single(found_arguments)
-
+def question_pipeline(sentence, vocab, model_name):
+    expect_arg1 = Expect.single(question_found_arguments)
     editor = Editor()
     t = editor.template(sentence, meta=True,
                         vocab=vocab)
+    if model_name == "bert":
+        predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
+    else:
+        predict_and_conf = PredictorWrapper.wrap_predict(basic_model_prediction)
+    test = MFT(**t, name='detect', expect=expect_arg1)
+    test.run(predict_and_conf)
+    test.summary(format_example_fn=question_format_srl)
+    return test
 
+
+def declarative_pipeline(sentence, vocab, model_name):
+    expect_arg1 = Expect.single(found_arguments)
+    editor = Editor()
+    t = editor.template(sentence, meta=True,
+                        vocab=vocab)
     if model_name == "bert":
         predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
     else:
@@ -82,6 +120,15 @@ def run_test(sentence, vocab, model_name, gold='I-ARG2'):
     test = MFT(**t, name='detect', expect=expect_arg1)
     test.run(predict_and_conf)
     test.summary(format_example_fn=format_srl)
+    return test
+
+
+def run_test(sentence, vocab, model_name, sentence_type, gold='B-ARG0'):
+    if sentence_type == "question":
+        test = question_pipeline(sentence, vocab, model_name)
+
+    else:
+        test = declarative_pipeline(sentence, vocab, model_name)
 
     # create final df
     evaluation_df = pd.DataFrame({'vocab': vocab})
@@ -106,10 +153,8 @@ if __name__ == "__main__":
     bert_model = 'structured-prediction-srl-bert'
     basic_model = 'structured-prediction-srl'
 
-    input_sentence = "It was her who hurt him with {vocab}."
-    input_negation_sentence = "It was not her who hurt him with {vocab}."
-
-    # TODO: investigate fails for negation
+    input_sentence = "He often thinks about {vocab}."
+    input_question = "Does he often think about {vocab}?"
 
     with open('../../challenge_tests/vocab/processed_lists.json') as json_file:
         data = json.load(json_file)
@@ -117,34 +162,35 @@ if __name__ == "__main__":
     frequent_nouns = data['low_freq_objects']
     non_frequent_nouns = data['high_freq_objects']
 
-    basic_f_normal = run_test(input_sentence, frequent_nouns, 'basic')
+    basic_f_normal = run_test(input_sentence, frequent_nouns, 'basic', "dec")
     basic_f_normal['if_frequent'] = 1
-    basic_f_normal['if_negation'] = 0
-    bert_f_normal = run_test(input_sentence, frequent_nouns, 'bert')
+    basic_f_normal['if_question'] = 0
+    bert_f_normal = run_test(input_sentence, frequent_nouns, 'bert', "dec")
     bert_f_normal['if_frequent'] = 1
-    bert_f_normal['if_negation'] = 0
+    bert_f_normal['if_question'] = 0
 
-    basic_nf_normal = run_test(input_sentence, non_frequent_nouns, 'basic')
+    basic_nf_normal = run_test(input_sentence, non_frequent_nouns, 'basic', "dec")
     basic_nf_normal['if_frequent'] = 0
-    basic_nf_normal['if_negation'] = 0
-    bert_nf_normal = run_test(input_sentence, non_frequent_nouns, 'bert')
+    basic_nf_normal['if_question'] = 0
+    bert_nf_normal = run_test(input_sentence, non_frequent_nouns, 'bert', "dec")
     bert_nf_normal['if_frequent'] = 0
-    bert_nf_normal['if_negation'] = 0
+    bert_nf_normal['if_question'] = 0
 
-    basic_f_neg = run_test(input_negation_sentence, frequent_nouns, 'basic')
-    basic_f_neg['if_frequent'] = 1
-    basic_f_neg['if_negation'] = 1
-    bert_f_neg = run_test(input_negation_sentence, frequent_nouns, 'bert')
-    bert_f_neg['if_frequent'] = 1
-    bert_f_neg['if_negation'] = 1
+    basic_f_q = run_test(input_question, frequent_nouns, 'basic', "question")
+    basic_f_q['if_frequent'] = 1
+    basic_f_q['if_question'] = 1
+    bert_f_q = run_test(input_question, frequent_nouns, 'bert', "question")
+    bert_f_q['if_frequent'] = 1
+    bert_f_q['if_question'] = 1
 
-    basic_nf_neg = run_test(input_negation_sentence, non_frequent_nouns, 'basic')
-    basic_nf_neg['if_frequent'] = 0
-    basic_nf_neg['if_negation'] = 1
-    bert_ng_neg = run_test(input_negation_sentence, non_frequent_nouns, 'bert')
-    bert_ng_neg['if_frequent'] = 0
-    bert_ng_neg['if_negation'] = 1
+    basic_nf_q = run_test(input_question, non_frequent_nouns, 'basic', "question")
+    basic_nf_q['if_frequent'] = 0
+    basic_nf_q['if_question'] = 1
+    bert_ng_q = run_test(input_question, non_frequent_nouns, 'bert', "question")
+    bert_ng_q['if_frequent'] = 0
+    bert_ng_q['if_question'] = 1
 
     merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
-                         basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "negation_arg2")
+                         basic_f_q, bert_f_q, basic_nf_q, bert_ng_q, "negation_arg2")
 
+# TODO: different verbs

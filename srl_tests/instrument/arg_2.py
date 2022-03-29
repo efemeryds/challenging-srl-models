@@ -98,7 +98,7 @@ def run_test(sentence, vocab, model_name, gold='I-ARG2'):
 
 def merge_models_outputs(model1, model2, model3, model4, output_file):
     final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv")
+    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
     print('DONE')
 
 

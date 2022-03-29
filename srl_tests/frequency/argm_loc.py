@@ -22,7 +22,7 @@ logging.getLogger('allennlp.models.archival').disabled = True
 
 def get_argument(pred, arg_target='I-ARGM-LOC'):
     # assume one predicate:
-    predicate_arguments = pred['verbs'][2]
+    predicate_arguments = pred['verbs'][1]
     words = pred['words']
     tags = predicate_arguments['tags']
 
@@ -38,7 +38,7 @@ def get_argument(pred, arg_target='I-ARGM-LOC'):
 
 
 def format_srl(x, pred, conf, label=None, meta=None):
-    predicate_structure = pred['verbs'][2]['description']
+    predicate_structure = pred['verbs'][1]['description']
     return predicate_structure
 
 
@@ -98,7 +98,7 @@ def run_test(sentence, vocab, model_name, gold='I-ARGM-LOC'):
 
 def merge_models_outputs(model1, model2, model3, model4, output_file):
     final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv")
+    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
     print('DONE')
 
 
@@ -113,7 +113,7 @@ if __name__ == "__main__":
     frequent_locations = data['low_freq_places']
     non_frequent_locations = data['high_freq_places']
 
-    input_sentence = "When I was younger someone told me about a magical place, this happened next to the {vocab}."
+    input_sentence = "Someone told me a secret, it happened next to the {vocab}."
 
     basic_eval_f = run_test(input_sentence, frequent_locations, 'basic')
     basic_eval_f['if_frequent'] = 1

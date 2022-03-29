@@ -70,7 +70,7 @@ def bert_prediction(data):
     return predicate_list
 
 
-def run_test(sentence, vocab, model_name, gold='I-ARG2'):
+def run_test(sentence, vocab, model_name, gold='B-ARG1'):
     expect_arg1 = Expect.single(found_arguments)
 
     editor = Editor()
@@ -99,7 +99,7 @@ def run_test(sentence, vocab, model_name, gold='I-ARG2'):
 
 def merge_models_outputs(model1, model2, model3, model4, model5, model6, model7, model8, output_file):
     final_data = pd.concat([model1, model2, model3, model4, model5, model6, model7, model8], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv")
+    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
     print('DONE')
 
 
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     bert_ng_neg['if_frequent'] = 0
 
     merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
-                         basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "passive_")
+                         basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "passive_b_arg1")
 
 
 
