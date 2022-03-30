@@ -1,4 +1,4 @@
-""" Evaluation of the results """
+""" Evaluation of the outcome """
 
 import pandas as pd
 
@@ -19,11 +19,11 @@ def get_evaluation(input_data):
     return
 
 
-results_arg1 = pd.read_csv("results/frequency_arg1.csv")
+results_arg1 = pd.read_csv("../outcome/frequency_arg1.csv")
 final_arg1 = pd.DataFrame(get_evaluation(results_arg1))
 final_arg1.to_csv("evaluation/frequency_arg1.csv", index=False)
 
-results_argm_loc = pd.read_csv("results/frequency_argm_loc.csv")
+results_argm_loc = pd.read_csv("../outcome/frequency_argm_loc.csv")
 final_argm_loc = pd.DataFrame(get_evaluation(results_arg1))
 final_argm_loc.to_csv("evaluation/frequency_argm_loc.csv", index=False)
 
