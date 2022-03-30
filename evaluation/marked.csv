@@ -1,0 +1,81 @@
+sentence,vocab,model_name,gold,eval,if_frequent
+She {verb} me.,manipulated,basic,B-ARG1,1,1
+She {verb} me.,appreciated,basic,B-ARG1,1,1
+She {verb} me.,cared for,basic,B-ARG1,1,1
+She {verb} me.,dismissed,basic,B-ARG1,1,1
+She {verb} me.,remembered,basic,B-ARG1,1,1
+She {verb} me.,advised,basic,B-ARG1,1,1
+She {verb} me.,lied to,basic,B-ARG1,1,1
+She {verb} me.,observed,basic,B-ARG1,1,1
+She {verb} me.,improved,basic,B-ARG1,1,1
+She {verb} me.,robbed,basic,B-ARG1,1,1
+She {verb} me.,manipulated,bert,B-ARG1,1,1
+She {verb} me.,appreciated,bert,B-ARG1,1,1
+She {verb} me.,cared for,bert,B-ARG1,1,1
+She {verb} me.,dismissed,bert,B-ARG1,1,1
+She {verb} me.,remembered,bert,B-ARG1,1,1
+She {verb} me.,advised,bert,B-ARG1,1,1
+She {verb} me.,lied to,bert,B-ARG1,1,1
+She {verb} me.,observed,bert,B-ARG1,1,1
+She {verb} me.,improved,bert,B-ARG1,1,1
+She {verb} me.,robbed,bert,B-ARG1,1,1
+She {verb} me.,recommended,basic,B-ARG1,1,0
+She {verb} me.,accepted,basic,B-ARG1,1,0
+She {verb} me.,taken,basic,B-ARG1,1,0
+She {verb} me.,sponsored,basic,B-ARG1,1,0
+She {verb} me.,picked,basic,B-ARG1,1,0
+She {verb} me.,encouraged,basic,B-ARG1,1,0
+She {verb} me.,concerned,basic,B-ARG1,1,0
+She {verb} me.,suspended,basic,B-ARG1,1,0
+She {verb} me.,isolated,basic,B-ARG1,1,0
+She {verb} me.,defended,basic,B-ARG1,1,0
+She {verb} me.,recommended,bert,B-ARG1,1,0
+She {verb} me.,accepted,bert,B-ARG1,1,0
+She {verb} me.,taken,bert,B-ARG1,1,0
+She {verb} me.,sponsored,bert,B-ARG1,1,0
+She {verb} me.,picked,bert,B-ARG1,1,0
+She {verb} me.,encouraged,bert,B-ARG1,1,0
+She {verb} me.,concerned,bert,B-ARG1,1,0
+She {verb} me.,suspended,bert,B-ARG1,1,0
+She {verb} me.,isolated,bert,B-ARG1,1,0
+She {verb} me.,defended,bert,B-ARG1,1,0
+It was her that {verb} me.,manipulated,basic,B-ARG1,1,1
+It was her that {verb} me.,appreciated,basic,B-ARG1,1,1
+It was her that {verb} me.,cared for,basic,B-ARG1,1,1
+It was her that {verb} me.,dismissed,basic,B-ARG1,1,1
+It was her that {verb} me.,remembered,basic,B-ARG1,1,1
+It was her that {verb} me.,advised,basic,B-ARG1,1,1
+It was her that {verb} me.,lied to,basic,B-ARG1,1,1
+It was her that {verb} me.,observed,basic,B-ARG1,1,1
+It was her that {verb} me.,improved,basic,B-ARG1,1,1
+It was her that {verb} me.,robbed,basic,B-ARG1,1,1
+It was her that {verb} me.,manipulated,bert,B-ARG1,1,1
+It was her that {verb} me.,appreciated,bert,B-ARG1,1,1
+It was her that {verb} me.,cared for,bert,B-ARG1,1,1
+It was her that {verb} me.,dismissed,bert,B-ARG1,1,1
+It was her that {verb} me.,remembered,bert,B-ARG1,1,1
+It was her that {verb} me.,advised,bert,B-ARG1,1,1
+It was her that {verb} me.,lied to,bert,B-ARG1,1,1
+It was her that {verb} me.,observed,bert,B-ARG1,1,1
+It was her that {verb} me.,improved,bert,B-ARG1,1,1
+It was her that {verb} me.,robbed,bert,B-ARG1,1,1
+It was her that {verb} me.,recommended,basic,B-ARG1,1,0
+It was her that {verb} me.,accepted,basic,B-ARG1,1,0
+It was her that {verb} me.,taken,basic,B-ARG1,1,0
+It was her that {verb} me.,sponsored,basic,B-ARG1,1,0
+It was her that {verb} me.,picked,basic,B-ARG1,1,0
+It was her that {verb} me.,encouraged,basic,B-ARG1,1,0
+It was her that {verb} me.,concerned,basic,B-ARG1,1,0
+It was her that {verb} me.,suspended,basic,B-ARG1,1,0
+It was her that {verb} me.,isolated,basic,B-ARG1,1,0
+It was her that {verb} me.,defended,basic,B-ARG1,1,0
+It was her that {verb} me.,recommended,bert,B-ARG1,1,0
+It was her that {verb} me.,accepted,bert,B-ARG1,1,0
+It was her that {verb} me.,taken,bert,B-ARG1,1,0
+It was her that {verb} me.,sponsored,bert,B-ARG1,1,0
+It was her that {verb} me.,picked,bert,B-ARG1,1,0
+It was her that {verb} me.,encouraged,bert,B-ARG1,1,0
+It was her that {verb} me.,concerned,bert,B-ARG1,1,0
+It was her that {verb} me.,suspended,bert,B-ARG1,1,0
+It was her that {verb} me.,isolated,bert,B-ARG1,1,0
+It was her that {verb} me.,defended,bert,B-ARG1,1,0
