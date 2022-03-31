@@ -20,7 +20,7 @@ logging.getLogger('allennlp.common.plugins').disabled = True
 logging.getLogger('allennlp.models.archival').disabled = True
 
 
-def get_argument(pred, arg_target='B-ARG0'):
+def get_argument(pred, arg_target='B-ARG1'):
     # assume one predicate:
     predicate_arguments = pred['verbs'][0]
     words = pred['words']
@@ -33,7 +33,7 @@ def get_argument(pred, arg_target='B-ARG0'):
     return arg_list
 
 
-def get_question_argument(pred, arg_target='B-ARG0'):
+def pred1_get_argument(pred, arg_target='B-ARG1'):
     # assume one predicate:
     predicate_arguments = pred['verbs'][1]
     words = pred['words']
@@ -51,15 +51,15 @@ def format_srl(x, pred, conf, label=None, meta=None):
     return predicate_structure
 
 
-def question_format_srl(x, pred, conf, label=None, meta=None):
+def pred1_format_srl(x, pred, conf, label=None, meta=None):
     predicate_structure = pred['verbs'][1]['description']
     return predicate_structure
 
 
 def found_arguments(x, pred, conf, label=None, meta=None):
     # thing = meta['verb'].split()
-    thing = ['he', 'He']
-    predicted_label = get_argument(pred, arg_target='B-ARG0')
+    thing = ['me']
+    predicted_label = get_argument(pred, arg_target='B-ARG1')
     found = False
     if predicted_label:
         if predicted_label[0] in ' '.join(thing):
@@ -67,10 +67,10 @@ def found_arguments(x, pred, conf, label=None, meta=None):
     return found
 
 
-def question_found_arguments(x, pred, conf, label=None, meta=None):
+def pred1_found_arguments(x, pred, conf, label=None, meta=None):
     # thing = meta['verb'].split()
-    thing = ['he', 'He']
-    predicted_label = get_question_argument(pred, arg_target='B-ARG0')
+    thing = ['me']
+    predicted_label = pred1_get_argument(pred, arg_target='B-ARG1')
     found = False
     if predicted_label:
         if predicted_label[0] in ' '.join(thing):
@@ -94,26 +94,13 @@ def bert_prediction(data):
     return predicate_list
 
 
-def question_pipeline(sentence, vocab, model_name):
-    expect_arg1 = Expect.single(question_found_arguments)
-    editor = Editor()
-    t = editor.template(sentence, meta=True,
-                        vocab=vocab)
-    if model_name == "bert":
-        predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
-    else:
-        predict_and_conf = PredictorWrapper.wrap_predict(basic_model_prediction)
-    test = MFT(**t, name='detect', expect=expect_arg1)
-    test.run(predict_and_conf)
-    test.summary(format_example_fn=question_format_srl)
-    return test
-
-
-def declarative_pipeline(sentence, vocab, model_name):
+def normal(sentence, vocab, model_name):
     expect_arg1 = Expect.single(found_arguments)
+
     editor = Editor()
     t = editor.template(sentence, meta=True,
-                        vocab=vocab)
+                        verb=vocab)
+
     if model_name == "bert":
         predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
     else:
@@ -124,28 +111,56 @@ def declarative_pipeline(sentence, vocab, model_name):
     return test
 
 
-def run_test(sentence, vocab, model_name, sentence_type, gold='B-ARG0'):
-    if sentence_type == "question":
-        test = question_pipeline(sentence, vocab, model_name)
+def special(sentence, vocab, model_name):
+    expect_arg1 = Expect.single(pred1_found_arguments)
+    editor = Editor()
+    t = editor.template(sentence, meta=True,
+                        verb=vocab)
+    if model_name == "bert":
+        predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
+    else:
+        predict_and_conf = PredictorWrapper.wrap_predict(basic_model_prediction)
+    test = MFT(**t, name='detect', expect=expect_arg1)
+    test.run(predict_and_conf)
+    test.summary(format_example_fn=pred1_format_srl)
+    return test
+
+
+def run_test(sentence, vocab, model_name, gold='B-ARG1', if_special='no'):
+    if if_special == "yes":
+        test = special(sentence, vocab, model_name)
 
     else:
-        test = declarative_pipeline(sentence, vocab, model_name)
+        test = normal(sentence, vocab, model_name)
 
     # create final df
     evaluation_df = pd.DataFrame({'vocab': vocab})
     evaluation_df['sentence'] = sentence
+
+    if if_special == 'yes':
+        evaluation_df['if_marked'] = 1
+    else:
+        evaluation_df['if_marked'] = 0
+
     evaluation_df['gold'] = gold
-    evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
+    #evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
     evaluation_df['predicted'] = list(test.results['passed'])
-    evaluation_df['eval'] = np.where(evaluation_df['expected'] == evaluation_df['predicted'], 1, 0)
+    evaluation_df['eval'] = np.where(evaluation_df['predicted'] == True, 1, 0)
     evaluation_df['model_name'] = model_name
-    evaluation_df = evaluation_df[['sentence', 'vocab', 'model_name', 'gold', 'eval']]
+    evaluation_df = evaluation_df[['sentence', 'vocab', 'model_name', 'gold', 'eval', 'if_marked']]
     return evaluation_df
 
 
+# def merge_models_outputs(model1, model2, model3, model4, model5, model6, model7, model8,
+#                          model9, model10, model11, model12, output_file):
+#     final_data = pd.concat([model1, model2, model3, model4, model5, model6, model7, model8,
+#                             model9, model10, model11, model12], ignore_index=True)
+#     final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
+#     print('DONE')
+
 def merge_models_outputs(model1, model2, model3, model4, model5, model6, model7, model8, output_file):
     final_data = pd.concat([model1, model2, model3, model4, model5, model6, model7, model8], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
+    final_data.to_csv(f"../../outcome/{output_file}.csv", index=False)
     print('DONE')
 
 
@@ -154,44 +169,49 @@ if __name__ == "__main__":
     bert_model = 'structured-prediction-srl-bert'
     basic_model = 'structured-prediction-srl'
 
-    input_sentence = "He often thinks about {vocab}."
-    input_question = "Does he often think about {vocab}?"
+    sentence1 = "She {verb} me."
+    sentence2 = "It was her that {verb} me."
+    #sentence3 = "Who she {verb} was me."
 
     with open('../../challenge_tests/vocab/processed_lists.json') as json_file:
         data = json.load(json_file)
 
-    frequent_nouns = data['low_freq_objects']
-    non_frequent_nouns = data['high_freq_objects']
+    frequent_nouns = data['low_freq_verbs']
+    non_frequent_nouns = data['high_freq_verbs']
 
-    basic_f_normal = run_test(input_sentence, frequent_nouns, 'basic', "dec")
-    basic_f_normal['if_frequent'] = 1
-    basic_f_normal['if_question'] = 0
-    bert_f_normal = run_test(input_sentence, frequent_nouns, 'bert', "dec")
-    bert_f_normal['if_frequent'] = 1
-    bert_f_normal['if_question'] = 0
+    basic_f_normal1 = run_test(sentence1, frequent_nouns, 'basic')
+    basic_f_normal1['if_frequent'] = 1
+    bert_f_normal1 = run_test(sentence1, frequent_nouns, 'bert')
+    bert_f_normal1['if_frequent'] = 1
 
-    basic_nf_normal = run_test(input_sentence, non_frequent_nouns, 'basic', "dec")
-    basic_nf_normal['if_frequent'] = 0
-    basic_nf_normal['if_question'] = 0
-    bert_nf_normal = run_test(input_sentence, non_frequent_nouns, 'bert', "dec")
-    bert_nf_normal['if_frequent'] = 0
-    bert_nf_normal['if_question'] = 0
+    basic_nf_normal1 = run_test(sentence1, non_frequent_nouns, 'basic')
+    basic_nf_normal1['if_frequent'] = 0
+    bert_nf_normal1 = run_test(sentence1, non_frequent_nouns, 'bert')
+    bert_nf_normal1['if_frequent'] = 0
 
-    basic_f_q = run_test(input_question, frequent_nouns, 'basic', "question")
-    basic_f_q['if_frequent'] = 1
-    basic_f_q['if_question'] = 1
-    bert_f_q = run_test(input_question, frequent_nouns, 'bert', "question")
-    bert_f_q['if_frequent'] = 1
-    bert_f_q['if_question'] = 1
+    basic_f_normal2 = run_test(sentence2, frequent_nouns, 'basic', if_special='yes')
+    basic_f_normal2['if_frequent'] = 1
+    bert_f_normal2 = run_test(sentence2, frequent_nouns, 'bert', if_special='yes')
+    bert_f_normal2['if_frequent'] = 1
 
-    basic_nf_q = run_test(input_question, non_frequent_nouns, 'basic', "question")
-    basic_nf_q['if_frequent'] = 0
-    basic_nf_q['if_question'] = 1
-    bert_ng_q = run_test(input_question, non_frequent_nouns, 'bert', "question")
-    bert_ng_q['if_frequent'] = 0
-    bert_ng_q['if_question'] = 1
+    basic_nf_normal2 = run_test(sentence2, non_frequent_nouns, 'basic', if_special='yes')
+    basic_nf_normal2['if_frequent'] = 0
+    bert_nf_normal2 = run_test(sentence2, non_frequent_nouns, 'bert', if_special='yes')
+    bert_nf_normal2['if_frequent'] = 0
 
-    merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
-                         basic_f_q, bert_f_q, basic_nf_q, bert_ng_q, "negation_arg2")
+    # basic_f_neg3 = run_test(sentence3, frequent_nouns, 'basic')
+    # basic_f_neg3['if_frequent'] = 1
+    # bert_f_neg3 = run_test(sentence3, frequent_nouns, 'bert')
+    # bert_f_neg3['if_frequent'] = 1
+    #
+    # basic_nf_neg3 = run_test(sentence3, non_frequent_nouns, 'basic')
+    # basic_nf_neg3['if_frequent'] = 0
+    # bert_ng_neg3 = run_test(sentence3, non_frequent_nouns, 'bert')
+    # bert_ng_neg3['if_frequent'] = 0
 
-# TODO: different verbs
+    #merge_models_outputs(basic_f_normal1, bert_f_normal1, basic_nf_normal1, bert_nf_normal1,
+    #                     basic_f_normal2, bert_f_normal2, basic_nf_normal2, bert_nf_normal2,
+    #                     basic_f_neg3, bert_f_neg3, basic_nf_neg3, bert_ng_neg3, "marked")
+
+    merge_models_outputs(basic_f_normal1, bert_f_normal1, basic_nf_normal1, bert_nf_normal1,
+                        basic_f_normal2, bert_f_normal2, basic_nf_normal2, bert_nf_normal2, "marked")

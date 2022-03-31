@@ -20,12 +20,12 @@ logging.getLogger('allennlp.common.plugins').disabled = True
 logging.getLogger('allennlp.models.archival').disabled = True
 
 
-def get_argument(pred, arg_target='I-ARG2'):
+def get_argument(pred, arg_target='B-ARG1'):
     # assume one predicate:
     predicate_arguments = pred['verbs'][1]
     words = pred['words']
     tags = predicate_arguments['tags']
-
+    # {'verb': 'manipulated', 'description': '[ARG1: I] was [V: manipulated] [ARG0: by her] .', 'tags': ['B-ARG1', 'O', 'B-V', 'B-ARG0', 'I-ARG0', 'O']}
     arg_list = []
     for t, w in zip(tags, words):
         arg = t
@@ -43,12 +43,14 @@ def format_srl(x, pred, conf, label=None, meta=None):
 
 
 def found_arguments(x, pred, conf, label=None, meta=None):
-    thing = meta['vocab'].split()
-    predicted_label = get_argument(pred, arg_target='I-ARG2')
-    if predicted_label == thing:
-        found = True
-    else:
-        found = False
+    # thing = meta['verb'].split()
+    thing = ['me', 'I']
+    predicted_label = get_argument(pred, arg_target='B-ARG1')
+    found = False
+    if predicted_label:
+        if predicted_label[0] in ' '.join(thing):
+            found = True
+
     return found
 
 
@@ -68,12 +70,12 @@ def bert_prediction(data):
     return predicate_list
 
 
-def run_test(sentence, vocab, model_name, gold='I-ARG2'):
+def run_test(sentence, vocab, model_name, gold='B-ARG1', if_passive='no'):
     expect_arg1 = Expect.single(found_arguments)
 
     editor = Editor()
     t = editor.template(sentence, meta=True,
-                        vocab=vocab)
+                        verb=vocab)
 
     if model_name == "bert":
         predict_and_conf = PredictorWrapper.wrap_predict(bert_prediction)
@@ -86,18 +88,23 @@ def run_test(sentence, vocab, model_name, gold='I-ARG2'):
     # create final df
     evaluation_df = pd.DataFrame({'vocab': vocab})
     evaluation_df['sentence'] = sentence
+
+    if if_passive == 'yes':
+        evaluation_df['if_passive'] = 1
+    else:
+        evaluation_df['if_passive'] = 0
     evaluation_df['gold'] = gold
-    evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
+    #evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
     evaluation_df['predicted'] = list(test.results['passed'])
-    evaluation_df['eval'] = np.where(evaluation_df['expected'] == evaluation_df['predicted'], 1, 0)
+    evaluation_df['eval'] = np.where(evaluation_df['predicted'] == True, 1, 0)
     evaluation_df['model_name'] = model_name
-    evaluation_df = evaluation_df[['sentence', 'vocab', 'model_name', 'gold', 'eval']]
+    evaluation_df = evaluation_df[['sentence', 'vocab', 'model_name', 'gold', 'eval', 'if_passive']]
     return evaluation_df
 
 
 def merge_models_outputs(model1, model2, model3, model4, model5, model6, model7, model8, output_file):
     final_data = pd.concat([model1, model2, model3, model4, model5, model6, model7, model8], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
+    final_data.to_csv(f"../../outcome/{output_file}.csv", index=False)
     print('DONE')
 
 
@@ -106,45 +113,38 @@ if __name__ == "__main__":
     bert_model = 'structured-prediction-srl-bert'
     basic_model = 'structured-prediction-srl'
 
-    input_sentence = "It was her who hurt him with {vocab}."
-    input_negation_sentence = "It was not her who hurt him with {vocab}."
-
-    # TODO: investigate fails for negation
+    input_sentence = "She was the one who {verb} me."
+    passive_sentence = "I was {verb} by her."
 
     with open('../../challenge_tests/vocab/processed_lists.json') as json_file:
         data = json.load(json_file)
 
-    frequent_nouns = data['low_freq_objects']
-    non_frequent_nouns = data['high_freq_objects']
+    frequent_nouns = data['low_freq_verbs']
+    non_frequent_nouns = data['high_freq_verbs']
 
     basic_f_normal = run_test(input_sentence, frequent_nouns, 'basic')
     basic_f_normal['if_frequent'] = 1
-    basic_f_normal['if_negation'] = 0
     bert_f_normal = run_test(input_sentence, frequent_nouns, 'bert')
     bert_f_normal['if_frequent'] = 1
-    bert_f_normal['if_negation'] = 0
 
     basic_nf_normal = run_test(input_sentence, non_frequent_nouns, 'basic')
     basic_nf_normal['if_frequent'] = 0
-    basic_nf_normal['if_negation'] = 0
     bert_nf_normal = run_test(input_sentence, non_frequent_nouns, 'bert')
     bert_nf_normal['if_frequent'] = 0
-    bert_nf_normal['if_negation'] = 0
 
-    basic_f_neg = run_test(input_negation_sentence, frequent_nouns, 'basic')
+    basic_f_neg = run_test(passive_sentence, frequent_nouns, 'basic', if_passive='yes')
     basic_f_neg['if_frequent'] = 1
-    basic_f_neg['if_negation'] = 1
-    bert_f_neg = run_test(input_negation_sentence, frequent_nouns, 'bert')
+    bert_f_neg = run_test(passive_sentence, frequent_nouns, 'bert', if_passive='yes')
     bert_f_neg['if_frequent'] = 1
-    bert_f_neg['if_negation'] = 1
 
-    basic_nf_neg = run_test(input_negation_sentence, non_frequent_nouns, 'basic')
+    basic_nf_neg = run_test(passive_sentence, non_frequent_nouns, 'basic', if_passive='yes')
     basic_nf_neg['if_frequent'] = 0
-    basic_nf_neg['if_negation'] = 1
-    bert_ng_neg = run_test(input_negation_sentence, non_frequent_nouns, 'bert')
+    bert_ng_neg = run_test(passive_sentence, non_frequent_nouns, 'bert', if_passive='yes')
     bert_ng_neg['if_frequent'] = 0
-    bert_ng_neg['if_negation'] = 1
 
     merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
-                         basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "negation_arg2")
+                         basic_f_neg, bert_f_neg, basic_nf_neg, bert_ng_neg, "passive_b_arg1")
+
+
+
 

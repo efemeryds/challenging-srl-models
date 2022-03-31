@@ -88,9 +88,9 @@ def run_test(sentence, vocab, model_name, gold='I-ARGM-LOC'):
     evaluation_df = pd.DataFrame({'vocab': vocab})
     evaluation_df['sentence'] = sentence
     evaluation_df['gold'] = gold
-    evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
+    #evaluation_df['expected'] = list(np.concatenate(list(test.results['expect_results'])).ravel())
     evaluation_df['predicted'] = list(test.results['passed'])
-    evaluation_df['eval'] = np.where(evaluation_df['expected'] == evaluation_df['predicted'], 1, 0)
+    evaluation_df['eval'] = np.where(evaluation_df['predicted'] == True, 1, 0)
     evaluation_df['model_name'] = model_name
     evaluation_df = evaluation_df[['sentence', 'vocab', 'model_name', 'gold', 'eval']]
     return evaluation_df
@@ -98,7 +98,7 @@ def run_test(sentence, vocab, model_name, gold='I-ARGM-LOC'):
 
 def merge_models_outputs(model1, model2, model3, model4, output_file):
     final_data = pd.concat([model1, model2, model3, model4], ignore_index=True)
-    final_data.to_csv(f"../../evaluation/{output_file}.csv", index=False)
+    final_data.to_csv(f"../../outcome/{output_file}.csv", index=False)
     print('DONE')
 
 

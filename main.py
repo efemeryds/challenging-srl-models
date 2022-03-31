@@ -1,6 +1,0 @@
-""" Prints all the results """
-
-
-
-
-

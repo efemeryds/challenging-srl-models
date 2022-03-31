@@ -1,0 +1,9 @@
+model,test_type,failure_rate (%)
+bert,neg_freq,4.17
+bert,neg_non_freq,2.5
+bert,not_neg_freq,4.17
+bert,not_neg_non_freq,3.33
+basic,neg_freq,2.5
+basic,neg_non_freq,1.67
+basic,not_neg_freq,1.67
+basic,not_neg_non_freq,0.83

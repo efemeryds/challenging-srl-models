@@ -1,0 +1,81 @@
+sentence,vocab,model_name,gold,eval,if_passive,if_frequent
+She was the one who {verb} me.,manipulated,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,appreciated,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,cared for,basic,B-ARG1,0,0,1
+She was the one who {verb} me.,dismissed,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,remembered,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,advised,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,lied to,basic,B-ARG1,0,0,1
+She was the one who {verb} me.,observed,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,improved,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,robbed,basic,B-ARG1,1,0,1
+She was the one who {verb} me.,manipulated,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,appreciated,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,cared for,bert,B-ARG1,0,0,1
+She was the one who {verb} me.,dismissed,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,remembered,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,advised,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,lied to,bert,B-ARG1,0,0,1
+She was the one who {verb} me.,observed,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,improved,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,robbed,bert,B-ARG1,1,0,1
+She was the one who {verb} me.,recommended,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,accepted,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,taken,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,sponsored,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,picked,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,encouraged,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,concerned,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,suspended,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,isolated,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,defended,basic,B-ARG1,1,0,0
+She was the one who {verb} me.,recommended,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,accepted,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,taken,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,sponsored,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,picked,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,encouraged,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,concerned,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,suspended,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,isolated,bert,B-ARG1,1,0,0
+She was the one who {verb} me.,defended,bert,B-ARG1,1,0,0
+I was {verb} by her.,manipulated,basic,B-ARG1,1,1,1
+I was {verb} by her.,appreciated,basic,B-ARG1,1,1,1
+I was {verb} by her.,cared for,basic,B-ARG1,0,1,1
+I was {verb} by her.,dismissed,basic,B-ARG1,1,1,1
+I was {verb} by her.,remembered,basic,B-ARG1,1,1,1
+I was {verb} by her.,advised,basic,B-ARG1,0,1,1
+I was {verb} by her.,lied to,basic,B-ARG1,0,1,1
+I was {verb} by her.,observed,basic,B-ARG1,1,1,1
+I was {verb} by her.,improved,basic,B-ARG1,1,1,1
+I was {verb} by her.,robbed,basic,B-ARG1,1,1,1
+I was {verb} by her.,manipulated,bert,B-ARG1,1,1,1
+I was {verb} by her.,appreciated,bert,B-ARG1,1,1,1
+I was {verb} by her.,cared for,bert,B-ARG1,0,1,1
+I was {verb} by her.,dismissed,bert,B-ARG1,1,1,1
+I was {verb} by her.,remembered,bert,B-ARG1,1,1,1
+I was {verb} by her.,advised,bert,B-ARG1,1,1,1
+I was {verb} by her.,lied to,bert,B-ARG1,0,1,1
+I was {verb} by her.,observed,bert,B-ARG1,1,1,1
+I was {verb} by her.,improved,bert,B-ARG1,1,1,1
+I was {verb} by her.,robbed,bert,B-ARG1,1,1,1
+I was {verb} by her.,recommended,basic,B-ARG1,1,1,0
+I was {verb} by her.,accepted,basic,B-ARG1,1,1,0
+I was {verb} by her.,taken,basic,B-ARG1,1,1,0
+I was {verb} by her.,sponsored,basic,B-ARG1,1,1,0
+I was {verb} by her.,picked,basic,B-ARG1,1,1,0
+I was {verb} by her.,encouraged,basic,B-ARG1,1,1,0
+I was {verb} by her.,concerned,basic,B-ARG1,1,1,0
+I was {verb} by her.,suspended,basic,B-ARG1,1,1,0
+I was {verb} by her.,isolated,basic,B-ARG1,1,1,0
+I was {verb} by her.,defended,basic,B-ARG1,1,1,0
+I was {verb} by her.,recommended,bert,B-ARG1,1,1,0
+I was {verb} by her.,accepted,bert,B-ARG1,1,1,0
+I was {verb} by her.,taken,bert,B-ARG1,1,1,0
+I was {verb} by her.,sponsored,bert,B-ARG1,1,1,0
+I was {verb} by her.,picked,bert,B-ARG1,1,1,0
+I was {verb} by her.,encouraged,bert,B-ARG1,1,1,0
+I was {verb} by her.,concerned,bert,B-ARG1,1,1,0
+I was {verb} by her.,suspended,bert,B-ARG1,1,1,0
+I was {verb} by her.,isolated,bert,B-ARG1,1,1,0
+I was {verb} by her.,defended,bert,B-ARG1,1,1,0

@@ -20,7 +20,7 @@ data = data[0].str.rsplit(' ', 1, expand=True)
 data.columns = ['words', 'freq']
 data['freq'] = data['freq'].astype(int)
 
-# filter the words -> leave bottom starting from frequency 1000
+# filter the words -> leave bottom starting from frequency_baseline 1000
 tmp_data = data[data['freq'] >= 5000]
 tmp_data = tmp_data[tmp_data['freq'] <= 100000]
 
@@ -55,7 +55,7 @@ bottom_freq_nouns = list(tmp_data[tmp_data['tags'] == 'NOUN'].tail(10)['words'])
 top_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].head(10)['words'])
 bottom_freq_verbs = list(tmp_data[tmp_data['tags'] == 'VERB'].tail(10)['words'])
 
-""" Manually choosing the proper words in each frequency category """
+""" Manually choosing the proper words in each frequency_baseline category """
 
 # 10 examples
 low_freq_places = ['hideout', 'amphitheater', 'obelisk', 'cafes', 'dormitories', 'pyramids', 'westinghouse',

@@ -1,121 +1,121 @@
-,sentence,vocab,model_name,gold,eval,if_frequent
-0,I was her who hurt him with {vocab}.,glue,basic,I-ARG2,1,1
-1,I was her who hurt him with {vocab}.,wick,basic,I-ARG2,1,1
-2,I was her who hurt him with {vocab}.,watercolor,basic,I-ARG2,1,1
-3,I was her who hurt him with {vocab}.,gossypol,basic,I-ARG2,1,1
-4,I was her who hurt him with {vocab}.,jam,basic,I-ARG2,1,1
-5,I was her who hurt him with {vocab}.,vinegar,basic,I-ARG2,1,1
-6,I was her who hurt him with {vocab}.,graphite,basic,I-ARG2,1,1
-7,I was her who hurt him with {vocab}.,kettle,basic,I-ARG2,1,1
-8,I was her who hurt him with {vocab}.,cookies,basic,I-ARG2,1,1
-9,I was her who hurt him with {vocab}.,perfume,basic,I-ARG2,1,1
-10,I was her who hurt him with {vocab}.,razor,basic,I-ARG2,1,1
-11,I was her who hurt him with {vocab}.,bulbs,basic,I-ARG2,1,1
-12,I was her who hurt him with {vocab}.,carpets,basic,I-ARG2,1,1
-13,I was her who hurt him with {vocab}.,dessert,basic,I-ARG2,1,1
-14,I was her who hurt him with {vocab}.,bows,basic,I-ARG2,1,1
-15,I was her who hurt him with {vocab}.,glue,bert,I-ARG2,1,1
-16,I was her who hurt him with {vocab}.,wick,bert,I-ARG2,1,1
-17,I was her who hurt him with {vocab}.,watercolor,bert,I-ARG2,1,1
-18,I was her who hurt him with {vocab}.,gossypol,bert,I-ARG2,1,1
-19,I was her who hurt him with {vocab}.,jam,bert,I-ARG2,1,1
-20,I was her who hurt him with {vocab}.,vinegar,bert,I-ARG2,1,1
-21,I was her who hurt him with {vocab}.,graphite,bert,I-ARG2,1,1
-22,I was her who hurt him with {vocab}.,kettle,bert,I-ARG2,1,1
-23,I was her who hurt him with {vocab}.,cookies,bert,I-ARG2,1,1
-24,I was her who hurt him with {vocab}.,perfume,bert,I-ARG2,1,1
-25,I was her who hurt him with {vocab}.,razor,bert,I-ARG2,1,1
-26,I was her who hurt him with {vocab}.,bulbs,bert,I-ARG2,1,1
-27,I was her who hurt him with {vocab}.,carpets,bert,I-ARG2,1,1
-28,I was her who hurt him with {vocab}.,dessert,bert,I-ARG2,1,1
-29,I was her who hurt him with {vocab}.,bows,bert,I-ARG2,1,1
-30,I was her who hurt him with {vocab}.,instruments,basic,I-ARG2,1,0
-31,I was her who hurt him with {vocab}.,medals,basic,I-ARG2,1,0
-32,I was her who hurt him with {vocab}.,newspapers,basic,I-ARG2,1,0
-33,I was her who hurt him with {vocab}.,cards,basic,I-ARG2,1,0
-34,I was her who hurt him with {vocab}.,tools,basic,I-ARG2,1,0
-35,I was her who hurt him with {vocab}.,sculpture,basic,I-ARG2,1,0
-36,I was her who hurt him with {vocab}.,clothing,basic,I-ARG2,1,0
-37,I was her who hurt him with {vocab}.,photographs,basic,I-ARG2,1,0
-38,I was her who hurt him with {vocab}.,bone,basic,I-ARG2,1,0
-39,I was her who hurt him with {vocab}.,crystal,basic,I-ARG2,1,0
-40,I was her who hurt him with {vocab}.,door,basic,I-ARG2,1,0
-41,I was her who hurt him with {vocab}.,speakers,basic,I-ARG2,1,0
-42,I was her who hurt him with {vocab}.,boards,basic,I-ARG2,1,0
-43,I was her who hurt him with {vocab}.,drum,basic,I-ARG2,1,0
-44,I was her who hurt him with {vocab}.,tube,basic,I-ARG2,1,0
-45,I was her who hurt him with {vocab}.,instruments,bert,I-ARG2,1,0
-46,I was her who hurt him with {vocab}.,medals,bert,I-ARG2,1,0
-47,I was her who hurt him with {vocab}.,newspapers,bert,I-ARG2,1,0
-48,I was her who hurt him with {vocab}.,cards,bert,I-ARG2,1,0
-49,I was her who hurt him with {vocab}.,tools,bert,I-ARG2,1,0
-50,I was her who hurt him with {vocab}.,sculpture,bert,I-ARG2,1,0
-51,I was her who hurt him with {vocab}.,clothing,bert,I-ARG2,1,0
-52,I was her who hurt him with {vocab}.,photographs,bert,I-ARG2,1,0
-53,I was her who hurt him with {vocab}.,bone,bert,I-ARG2,1,0
-54,I was her who hurt him with {vocab}.,crystal,bert,I-ARG2,1,0
-55,I was her who hurt him with {vocab}.,door,bert,I-ARG2,1,0
-56,I was her who hurt him with {vocab}.,speakers,bert,I-ARG2,1,0
-57,I was her who hurt him with {vocab}.,boards,bert,I-ARG2,1,0
-58,I was her who hurt him with {vocab}.,drum,bert,I-ARG2,1,0
-59,I was her who hurt him with {vocab}.,tube,bert,I-ARG2,1,0
-60,It was not her who hurt him with {vocab}.,glue,basic,I-ARG2,1,1
-61,It was not her who hurt him with {vocab}.,wick,basic,I-ARG2,1,1
-62,It was not her who hurt him with {vocab}.,watercolor,basic,I-ARG2,1,1
-63,It was not her who hurt him with {vocab}.,gossypol,basic,I-ARG2,1,1
-64,It was not her who hurt him with {vocab}.,jam,basic,I-ARG2,1,1
-65,It was not her who hurt him with {vocab}.,vinegar,basic,I-ARG2,1,1
-66,It was not her who hurt him with {vocab}.,graphite,basic,I-ARG2,1,1
-67,It was not her who hurt him with {vocab}.,kettle,basic,I-ARG2,1,1
-68,It was not her who hurt him with {vocab}.,cookies,basic,I-ARG2,1,1
-69,It was not her who hurt him with {vocab}.,perfume,basic,I-ARG2,1,1
-70,It was not her who hurt him with {vocab}.,razor,basic,I-ARG2,1,1
-71,It was not her who hurt him with {vocab}.,bulbs,basic,I-ARG2,1,1
-72,It was not her who hurt him with {vocab}.,carpets,basic,I-ARG2,1,1
-73,It was not her who hurt him with {vocab}.,dessert,basic,I-ARG2,1,1
-74,It was not her who hurt him with {vocab}.,bows,basic,I-ARG2,1,1
-75,It was not her who hurt him with {vocab}.,glue,bert,I-ARG2,1,1
-76,It was not her who hurt him with {vocab}.,wick,bert,I-ARG2,1,1
-77,It was not her who hurt him with {vocab}.,watercolor,bert,I-ARG2,1,1
-78,It was not her who hurt him with {vocab}.,gossypol,bert,I-ARG2,1,1
-79,It was not her who hurt him with {vocab}.,jam,bert,I-ARG2,1,1
-80,It was not her who hurt him with {vocab}.,vinegar,bert,I-ARG2,1,1
-81,It was not her who hurt him with {vocab}.,graphite,bert,I-ARG2,1,1
-82,It was not her who hurt him with {vocab}.,kettle,bert,I-ARG2,1,1
-83,It was not her who hurt him with {vocab}.,cookies,bert,I-ARG2,1,1
-84,It was not her who hurt him with {vocab}.,perfume,bert,I-ARG2,1,1
-85,It was not her who hurt him with {vocab}.,razor,bert,I-ARG2,1,1
-86,It was not her who hurt him with {vocab}.,bulbs,bert,I-ARG2,1,1
-87,It was not her who hurt him with {vocab}.,carpets,bert,I-ARG2,1,1
-88,It was not her who hurt him with {vocab}.,dessert,bert,I-ARG2,1,1
-89,It was not her who hurt him with {vocab}.,bows,bert,I-ARG2,1,1
-90,It was not her who hurt him with {vocab}.,instruments,basic,I-ARG2,1,0
-91,It was not her who hurt him with {vocab}.,medals,basic,I-ARG2,1,0
-92,It was not her who hurt him with {vocab}.,newspapers,basic,I-ARG2,1,0
-93,It was not her who hurt him with {vocab}.,cards,basic,I-ARG2,1,0
-94,It was not her who hurt him with {vocab}.,tools,basic,I-ARG2,1,0
-95,It was not her who hurt him with {vocab}.,sculpture,basic,I-ARG2,1,0
-96,It was not her who hurt him with {vocab}.,clothing,basic,I-ARG2,1,0
-97,It was not her who hurt him with {vocab}.,photographs,basic,I-ARG2,1,0
-98,It was not her who hurt him with {vocab}.,bone,basic,I-ARG2,1,0
-99,It was not her who hurt him with {vocab}.,crystal,basic,I-ARG2,1,0
-100,It was not her who hurt him with {vocab}.,door,basic,I-ARG2,1,0
-101,It was not her who hurt him with {vocab}.,speakers,basic,I-ARG2,1,0
-102,It was not her who hurt him with {vocab}.,boards,basic,I-ARG2,1,0
-103,It was not her who hurt him with {vocab}.,drum,basic,I-ARG2,1,0
-104,It was not her who hurt him with {vocab}.,tube,basic,I-ARG2,1,0
-105,It was not her who hurt him with {vocab}.,instruments,bert,I-ARG2,1,0
-106,It was not her who hurt him with {vocab}.,medals,bert,I-ARG2,1,0
-107,It was not her who hurt him with {vocab}.,newspapers,bert,I-ARG2,1,0
-108,It was not her who hurt him with {vocab}.,cards,bert,I-ARG2,1,0
-109,It was not her who hurt him with {vocab}.,tools,bert,I-ARG2,1,0
-110,It was not her who hurt him with {vocab}.,sculpture,bert,I-ARG2,1,0
-111,It was not her who hurt him with {vocab}.,clothing,bert,I-ARG2,1,0
-112,It was not her who hurt him with {vocab}.,photographs,bert,I-ARG2,1,0
-113,It was not her who hurt him with {vocab}.,bone,bert,I-ARG2,1,0
-114,It was not her who hurt him with {vocab}.,crystal,bert,I-ARG2,1,0
-115,It was not her who hurt him with {vocab}.,door,bert,I-ARG2,1,0
-116,It was not her who hurt him with {vocab}.,speakers,bert,I-ARG2,1,0
-117,It was not her who hurt him with {vocab}.,boards,bert,I-ARG2,1,0
-118,It was not her who hurt him with {vocab}.,drum,bert,I-ARG2,1,0
-119,It was not her who hurt him with {vocab}.,tube,bert,I-ARG2,1,0
+sentence,vocab,model_name,gold,eval,if_frequent,if_negation
+It was her who hurt him with {vocab}.,glue,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,wick,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,watercolor,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,gossypol,basic,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,jam,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,vinegar,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,graphite,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,kettle,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,cookies,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,perfume,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,razor,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,bulbs,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,carpets,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,dessert,basic,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,bows,basic,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,glue,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,wick,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,watercolor,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,gossypol,bert,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,jam,bert,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,vinegar,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,graphite,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,kettle,bert,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,cookies,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,perfume,bert,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,razor,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,bulbs,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,carpets,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,dessert,bert,I-ARG2,1,1,0
+It was her who hurt him with {vocab}.,bows,bert,I-ARG2,0,1,0
+It was her who hurt him with {vocab}.,instruments,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,medals,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,newspapers,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,cards,basic,I-ARG2,0,0,0
+It was her who hurt him with {vocab}.,tools,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,sculpture,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,clothing,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,photographs,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,bone,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,crystal,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,door,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,speakers,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,boards,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,drum,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,tube,basic,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,instruments,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,medals,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,newspapers,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,cards,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,tools,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,sculpture,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,clothing,bert,I-ARG2,0,0,0
+It was her who hurt him with {vocab}.,photographs,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,bone,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,crystal,bert,I-ARG2,0,0,0
+It was her who hurt him with {vocab}.,door,bert,I-ARG2,0,0,0
+It was her who hurt him with {vocab}.,speakers,bert,I-ARG2,0,0,0
+It was her who hurt him with {vocab}.,boards,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,drum,bert,I-ARG2,1,0,0
+It was her who hurt him with {vocab}.,tube,bert,I-ARG2,1,0,0
+It was not her who hurt him with {vocab}.,glue,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,wick,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,watercolor,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,gossypol,basic,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,jam,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,vinegar,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,graphite,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,kettle,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,cookies,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,perfume,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,razor,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,bulbs,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,carpets,basic,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,dessert,basic,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,bows,basic,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,glue,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,wick,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,watercolor,bert,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,gossypol,bert,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,jam,bert,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,vinegar,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,graphite,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,kettle,bert,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,cookies,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,perfume,bert,I-ARG2,0,1,1
+It was not her who hurt him with {vocab}.,razor,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,bulbs,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,carpets,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,dessert,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,bows,bert,I-ARG2,1,1,1
+It was not her who hurt him with {vocab}.,instruments,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,medals,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,newspapers,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,cards,basic,I-ARG2,0,0,1
+It was not her who hurt him with {vocab}.,tools,basic,I-ARG2,0,0,1
+It was not her who hurt him with {vocab}.,sculpture,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,clothing,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,photographs,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,bone,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,crystal,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,door,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,speakers,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,boards,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,drum,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,tube,basic,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,instruments,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,medals,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,newspapers,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,cards,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,tools,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,sculpture,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,clothing,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,photographs,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,bone,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,crystal,bert,I-ARG2,0,0,1
+It was not her who hurt him with {vocab}.,door,bert,I-ARG2,0,0,1
+It was not her who hurt him with {vocab}.,speakers,bert,I-ARG2,0,0,1
+It was not her who hurt him with {vocab}.,boards,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,drum,bert,I-ARG2,1,0,1
+It was not her who hurt him with {vocab}.,tube,bert,I-ARG2,1,0,1

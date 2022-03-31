@@ -1,0 +1,9 @@
+model,test_type,failure_rate (%)
+bert,question_freq,0.0
+bert,question_non_freq,0.0
+bert,not_question_freq,0.0
+bert,not_question_non_freq,0.0
+basic,question_freq,0.0
+basic,question_non_freq,0.83
+basic,not_question_freq,0.0
+basic,not_question_non_freq,0.0

@@ -1,1 +1,7 @@
-
+model,test_type,failure_rate (%)
+bert,general,0.0
+bert,frequent,0.0
+bert,non_frequent,0.0
+basic,general,0.0
+basic,frequent,0.0
+basic,non_frequent,0.0

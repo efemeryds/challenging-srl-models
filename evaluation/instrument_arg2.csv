@@ -1,61 +1,7 @@
-sentence,vocab,model_name,gold,eval,if_frequent
-She hurt him with the {vocab}.,glue,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,wick,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,watercolor,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,gossypol,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,jam,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,vinegar,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,graphite,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,kettle,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,cookies,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,perfume,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,razor,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,bulbs,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,carpets,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,dessert,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,bows,basic,I-ARG2,1,1
-She hurt him with the {vocab}.,glue,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,wick,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,watercolor,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,gossypol,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,jam,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,vinegar,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,graphite,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,kettle,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,cookies,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,perfume,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,razor,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,bulbs,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,carpets,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,dessert,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,bows,bert,I-ARG2,1,1
-She hurt him with the {vocab}.,instruments,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,medals,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,newspapers,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,cards,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,tools,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,sculpture,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,clothing,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,photographs,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,bone,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,crystal,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,door,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,speakers,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,boards,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,drum,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,tube,basic,I-ARG2,1,0
-She hurt him with the {vocab}.,instruments,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,medals,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,newspapers,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,cards,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,tools,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,sculpture,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,clothing,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,photographs,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,bone,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,crystal,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,door,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,speakers,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,boards,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,drum,bert,I-ARG2,1,0
-She hurt him with the {vocab}.,tube,bert,I-ARG2,1,0
+model,test_type,failure_rate (%)
+bert,general,0.0
+bert,frequent,0.0
+bert,non_frequent,0.0
+basic,general,1.67
+basic,frequent,0.0
+basic,non_frequent,1.67

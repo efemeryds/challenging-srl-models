@@ -1,0 +1,9 @@
+model,test_type,failure_rate (%)
+bert,passive_freq,20.0
+bert,passive_non_freq,0.0
+bert,not_passive_freq,20.0
+bert,not_passive_non_freq,0.0
+basic,passive_freq,30.0
+basic,passive_non_freq,0.0
+basic,not_passive_freq,20.0
+basic,not_passive_non_freq,0.0

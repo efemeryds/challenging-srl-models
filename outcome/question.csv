@@ -1,0 +1,121 @@
+sentence,vocab,model_name,gold,eval,if_frequent,if_question
+He often thinks about {vocab}.,glue,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,wick,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,watercolor,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,gossypol,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,jam,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,vinegar,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,graphite,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,kettle,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,cookies,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,perfume,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,razor,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,bulbs,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,carpets,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,dessert,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,bows,basic,B-ARG0,1,1,0
+He often thinks about {vocab}.,glue,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,wick,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,watercolor,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,gossypol,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,jam,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,vinegar,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,graphite,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,kettle,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,cookies,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,perfume,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,razor,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,bulbs,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,carpets,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,dessert,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,bows,bert,B-ARG0,1,1,0
+He often thinks about {vocab}.,instruments,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,medals,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,newspapers,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,cards,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,tools,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,sculpture,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,clothing,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,photographs,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,bone,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,crystal,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,door,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,speakers,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,boards,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,drum,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,tube,basic,B-ARG0,1,0,0
+He often thinks about {vocab}.,instruments,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,medals,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,newspapers,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,cards,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,tools,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,sculpture,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,clothing,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,photographs,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,bone,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,crystal,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,door,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,speakers,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,boards,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,drum,bert,B-ARG0,1,0,0
+He often thinks about {vocab}.,tube,bert,B-ARG0,1,0,0
+Does he often think about {vocab}?,glue,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,wick,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,watercolor,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,gossypol,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,jam,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,vinegar,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,graphite,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,kettle,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,cookies,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,perfume,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,razor,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,bulbs,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,carpets,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,dessert,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,bows,basic,B-ARG0,1,1,1
+Does he often think about {vocab}?,glue,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,wick,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,watercolor,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,gossypol,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,jam,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,vinegar,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,graphite,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,kettle,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,cookies,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,perfume,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,razor,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,bulbs,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,carpets,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,dessert,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,bows,bert,B-ARG0,1,1,1
+Does he often think about {vocab}?,instruments,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,medals,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,newspapers,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,cards,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,tools,basic,B-ARG0,0,0,1
+Does he often think about {vocab}?,sculpture,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,clothing,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,photographs,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,bone,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,crystal,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,door,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,speakers,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,boards,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,drum,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,tube,basic,B-ARG0,1,0,1
+Does he often think about {vocab}?,instruments,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,medals,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,newspapers,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,cards,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,tools,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,sculpture,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,clothing,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,photographs,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,bone,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,crystal,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,door,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,speakers,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,boards,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,drum,bert,B-ARG0,1,0,1
+Does he often think about {vocab}?,tube,bert,B-ARG0,1,0,1
