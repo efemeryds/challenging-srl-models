@@ -1,0 +1,21 @@
+sentence,target,gold
+"Someone told me a secret, it happened next to the hideout.",hideout,I-ARGM-LOC
+"Someone told me a secret, it happened next to the amphitheater.",amphitheater,I-ARGM-LOC
+"Someone told me a secret, it happened next to the obelisk.",obelisk,I-ARGM-LOC
+"Someone told me a secret, it happened next to the cafes.",cafes,I-ARGM-LOC
+"Someone told me a secret, it happened next to the dormitories.",dormitories,I-ARGM-LOC
+"Someone told me a secret, it happened next to the pyramids.",pyramids,I-ARGM-LOC
+"Someone told me a secret, it happened next to the westinghouse.",westinghouse,I-ARGM-LOC
+"Someone told me a secret, it happened next to the backyard.",backyard,I-ARGM-LOC
+"Someone told me a secret, it happened next to the bastion.",bastion,I-ARGM-LOC
+"Someone told me a secret, it happened next to the stair.",stair,I-ARGM-LOC
+"Someone told me a secret, it happened next to the pool.",pool,I-ARGM-LOC
+"Someone told me a secret, it happened next to the territories.",territories,I-ARGM-LOC
+"Someone told me a secret, it happened next to the landscape.",landscape,I-ARGM-LOC
+"Someone told me a secret, it happened next to the transition.",transition,I-ARGM-LOC
+"Someone told me a secret, it happened next to the oak.",oak,I-ARGM-LOC
+"Someone told me a secret, it happened next to the manor.",manor,I-ARGM-LOC
+"Someone told me a secret, it happened next to the locomotives.",locomotives,I-ARGM-LOC
+"Someone told me a secret, it happened next to the departments.",departments,I-ARGM-LOC
+"Someone told me a secret, it happened next to the shops.",shops,I-ARGM-LOC
+"Someone told me a secret, it happened next to the restaurants.",restaurants,I-ARGM-LOC

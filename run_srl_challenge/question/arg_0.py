@@ -194,4 +194,3 @@ if __name__ == "__main__":
     merge_models_outputs(basic_f_normal, bert_f_normal, basic_nf_normal, bert_nf_normal,
                          basic_f_q, bert_f_q, basic_nf_q, bert_ng_q, "question")
 
-# TODO: different verbs

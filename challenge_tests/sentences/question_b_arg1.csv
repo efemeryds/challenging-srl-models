@@ -1,0 +1,61 @@
+sentence,target,gold
+He often thinks about glue.,he or He,B-ARG1
+He often thinks about wick.,he or He,B-ARG1
+He often thinks about watercolor.,he or He,B-ARG1
+He often thinks about gossypol.,he or He,B-ARG1
+He often thinks about jam.,he or He,B-ARG1
+He often thinks about vinegar.,he or He,B-ARG1
+He often thinks about graphite.,he or He,B-ARG1
+He often thinks about kettle.,he or He,B-ARG1
+He often thinks about cookies.,he or He,B-ARG1
+He often thinks about perfume.,he or He,B-ARG1
+He often thinks about razor.,he or He,B-ARG1
+He often thinks about bulbs.,he or He,B-ARG1
+He often thinks about carpets.,he or He,B-ARG1
+He often thinks about dessert.,he or He,B-ARG1
+He often thinks about bows.,he or He,B-ARG1
+He often thinks about instruments.,he or He,B-ARG1
+He often thinks about medals.,he or He,B-ARG1
+He often thinks about newspapers.,he or He,B-ARG1
+He often thinks about cards.,he or He,B-ARG1
+He often thinks about tools.,he or He,B-ARG1
+He often thinks about sculpture.,he or He,B-ARG1
+He often thinks about clothing.,he or He,B-ARG1
+He often thinks about photographs.,he or He,B-ARG1
+He often thinks about bone.,he or He,B-ARG1
+He often thinks about crystal.,he or He,B-ARG1
+He often thinks about door.,he or He,B-ARG1
+He often thinks about speakers.,he or He,B-ARG1
+He often thinks about boards.,he or He,B-ARG1
+He often thinks about drum.,he or He,B-ARG1
+He often thinks about tube.,he or He,B-ARG1
+Does he often think about glue?,he or He,B-ARG1
+Does he often think about wick?,he or He,B-ARG1
+Does he often think about watercolor?,he or He,B-ARG1
+Does he often think about gossypol?,he or He,B-ARG1
+Does he often think about jam?,he or He,B-ARG1
+Does he often think about vinegar?,he or He,B-ARG1
+Does he often think about graphite?,he or He,B-ARG1
+Does he often think about kettle?,he or He,B-ARG1
+Does he often think about cookies?,he or He,B-ARG1
+Does he often think about perfume?,he or He,B-ARG1
+Does he often think about razor?,he or He,B-ARG1
+Does he often think about bulbs?,he or He,B-ARG1
+Does he often think about carpets?,he or He,B-ARG1
+Does he often think about dessert?,he or He,B-ARG1
+Does he often think about bows?,he or He,B-ARG1
+Does he often think about instruments?,he or He,B-ARG1
+Does he often think about medals?,he or He,B-ARG1
+Does he often think about newspapers?,he or He,B-ARG1
+Does he often think about cards?,he or He,B-ARG1
+Does he often think about tools?,he or He,B-ARG1
+Does he often think about sculpture?,he or He,B-ARG1
+Does he often think about clothing?,he or He,B-ARG1
+Does he often think about photographs?,he or He,B-ARG1
+Does he often think about bone?,he or He,B-ARG1
+Does he often think about crystal?,he or He,B-ARG1
+Does he often think about door?,he or He,B-ARG1
+Does he often think about speakers?,he or He,B-ARG1
+Does he often think about boards?,he or He,B-ARG1
+Does he often think about drum?,he or He,B-ARG1
+Does he often think about tube?,he or He,B-ARG1

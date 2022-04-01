@@ -1,0 +1,61 @@
+sentence,target,gold
+It was her who hurt him with glue.,glue,I-ARG2
+It was her who hurt him with wick.,wick,I-ARG2
+It was her who hurt him with watercolor.,watercolor,I-ARG2
+It was her who hurt him with gossypol.,gossypol,I-ARG2
+It was her who hurt him with jam.,jam,I-ARG2
+It was her who hurt him with vinegar.,vinegar,I-ARG2
+It was her who hurt him with graphite.,graphite,I-ARG2
+It was her who hurt him with kettle.,kettle,I-ARG2
+It was her who hurt him with cookies.,cookies,I-ARG2
+It was her who hurt him with perfume.,perfume,I-ARG2
+It was her who hurt him with razor.,razor,I-ARG2
+It was her who hurt him with bulbs.,bulbs,I-ARG2
+It was her who hurt him with carpets.,carpets,I-ARG2
+It was her who hurt him with dessert.,dessert,I-ARG2
+It was her who hurt him with bows.,bows,I-ARG2
+It was her who hurt him with instruments.,instruments,I-ARG2
+It was her who hurt him with medals.,medals,I-ARG2
+It was her who hurt him with newspapers.,newspapers,I-ARG2
+It was her who hurt him with cards.,cards,I-ARG2
+It was her who hurt him with tools.,tools,I-ARG2
+It was her who hurt him with sculpture.,sculpture,I-ARG2
+It was her who hurt him with clothing.,clothing,I-ARG2
+It was her who hurt him with photographs.,photographs,I-ARG2
+It was her who hurt him with bone.,bone,I-ARG2
+It was her who hurt him with crystal.,crystal,I-ARG2
+It was her who hurt him with door.,door,I-ARG2
+It was her who hurt him with speakers.,speakers,I-ARG2
+It was her who hurt him with boards.,boards,I-ARG2
+It was her who hurt him with drum.,drum,I-ARG2
+It was her who hurt him with tube.,tube,I-ARG2
+It was not her who hurt him with glue.,glue,I-ARG2
+It was not her who hurt him with wick.,wick,I-ARG2
+It was not her who hurt him with watercolor.,watercolor,I-ARG2
+It was not her who hurt him with gossypol.,gossypol,I-ARG2
+It was not her who hurt him with jam.,jam,I-ARG2
+It was not her who hurt him with vinegar.,vinegar,I-ARG2
+It was not her who hurt him with graphite.,graphite,I-ARG2
+It was not her who hurt him with kettle.,kettle,I-ARG2
+It was not her who hurt him with cookies.,cookies,I-ARG2
+It was not her who hurt him with perfume.,perfume,I-ARG2
+It was not her who hurt him with razor.,razor,I-ARG2
+It was not her who hurt him with bulbs.,bulbs,I-ARG2
+It was not her who hurt him with carpets.,carpets,I-ARG2
+It was not her who hurt him with dessert.,dessert,I-ARG2
+It was not her who hurt him with bows.,bows,I-ARG2
+It was not her who hurt him with instruments.,instruments,I-ARG2
+It was not her who hurt him with medals.,medals,I-ARG2
+It was not her who hurt him with newspapers.,newspapers,I-ARG2
+It was not her who hurt him with cards.,cards,I-ARG2
+It was not her who hurt him with tools.,tools,I-ARG2
+It was not her who hurt him with sculpture.,sculpture,I-ARG2
+It was not her who hurt him with clothing.,clothing,I-ARG2
+It was not her who hurt him with photographs.,photographs,I-ARG2
+It was not her who hurt him with bone.,bone,I-ARG2
+It was not her who hurt him with crystal.,crystal,I-ARG2
+It was not her who hurt him with door.,door,I-ARG2
+It was not her who hurt him with speakers.,speakers,I-ARG2
+It was not her who hurt him with boards.,boards,I-ARG2
+It was not her who hurt him with drum.,drum,I-ARG2
+It was not her who hurt him with tube.,tube,I-ARG2

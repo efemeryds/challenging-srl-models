@@ -1,0 +1,41 @@
+sentence,target,gold
+She manipulated me.,me,B-ARG1
+She appreciated me.,me,B-ARG1
+She cared for me.,me,B-ARG1
+She dismissed me.,me,B-ARG1
+She remembered me.,me,B-ARG1
+She advised me.,me,B-ARG1
+She lied to me.,me,B-ARG1
+She observed me.,me,B-ARG1
+She improved me.,me,B-ARG1
+She robbed me.,me,B-ARG1
+She recommended me.,me,B-ARG1
+She accepted me.,me,B-ARG1
+She taken me.,me,B-ARG1
+She sponsored me.,me,B-ARG1
+She picked me.,me,B-ARG1
+She encouraged me.,me,B-ARG1
+She concerned me.,me,B-ARG1
+She suspended me.,me,B-ARG1
+She isolated me.,me,B-ARG1
+She defended me.,me,B-ARG1
+It was her that manipulated me.,me,B-ARG1
+It was her that appreciated me.,me,B-ARG1
+It was her that cared for me.,me,B-ARG1
+It was her that dismissed me.,me,B-ARG1
+It was her that remembered me.,me,B-ARG1
+It was her that advised me.,me,B-ARG1
+It was her that lied to me.,me,B-ARG1
+It was her that observed me.,me,B-ARG1
+It was her that improved me.,me,B-ARG1
+It was her that robbed me.,me,B-ARG1
+It was her that recommended me.,me,B-ARG1
+It was her that accepted me.,me,B-ARG1
+It was her that taken me.,me,B-ARG1
+It was her that sponsored me.,me,B-ARG1
+It was her that picked me.,me,B-ARG1
+It was her that encouraged me.,me,B-ARG1
+It was her that concerned me.,me,B-ARG1
+It was her that suspended me.,me,B-ARG1
+It was her that isolated me.,me,B-ARG1
+It was her that defended me.,me,B-ARG1

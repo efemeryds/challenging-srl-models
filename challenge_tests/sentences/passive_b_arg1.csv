@@ -1,0 +1,41 @@
+sentence,target,gold
+She was the one who manipulated me.,me or I,B-ARG1
+She was the one who appreciated me.,me or I,B-ARG1
+She was the one who cared for me.,me or I,B-ARG1
+She was the one who dismissed me.,me or I,B-ARG1
+She was the one who remembered me.,me or I,B-ARG1
+She was the one who advised me.,me or I,B-ARG1
+She was the one who lied to me.,me or I,B-ARG1
+She was the one who observed me.,me or I,B-ARG1
+She was the one who improved me.,me or I,B-ARG1
+She was the one who robbed me.,me or I,B-ARG1
+She was the one who recommended me.,me or I,B-ARG1
+She was the one who accepted me.,me or I,B-ARG1
+She was the one who taken me.,me or I,B-ARG1
+She was the one who sponsored me.,me or I,B-ARG1
+She was the one who picked me.,me or I,B-ARG1
+She was the one who encouraged me.,me or I,B-ARG1
+She was the one who concerned me.,me or I,B-ARG1
+She was the one who suspended me.,me or I,B-ARG1
+She was the one who isolated me.,me or I,B-ARG1
+She was the one who defended me.,me or I,B-ARG1
+I was manipulated by her.,me or I,B-ARG1
+I was appreciated by her.,me or I,B-ARG1
+I was cared for by her.,me or I,B-ARG1
+I was dismissed by her.,me or I,B-ARG1
+I was remembered by her.,me or I,B-ARG1
+I was advised by her.,me or I,B-ARG1
+I was lied to by her.,me or I,B-ARG1
+I was observed by her.,me or I,B-ARG1
+I was improved by her.,me or I,B-ARG1
+I was robbed by her.,me or I,B-ARG1
+I was recommended by her.,me or I,B-ARG1
+I was accepted by her.,me or I,B-ARG1
+I was taken by her.,me or I,B-ARG1
+I was sponsored by her.,me or I,B-ARG1
+I was picked by her.,me or I,B-ARG1
+I was encouraged by her.,me or I,B-ARG1
+I was concerned by her.,me or I,B-ARG1
+I was suspended by her.,me or I,B-ARG1
+I was isolated by her.,me or I,B-ARG1
+I was defended by her.,me or I,B-ARG1
